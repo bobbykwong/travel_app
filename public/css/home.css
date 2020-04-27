@@ -1,0 +1,14 @@
+.home-btn{
+	text-decoration: none;
+}
+
+h1{
+	color: rgb(255,214,209);
+	/*text-align: center;*/
+	display: inline;
+}
+
+.logo{
+	max-height: 50px;
+	max-width: 50px
+}

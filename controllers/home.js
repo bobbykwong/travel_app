@@ -8,7 +8,7 @@ module.exports = (db) => {
     let homePage = (request, response) => {
         const loggedIn = request.cookies.loggedIn;
         if (loggedIn === 'true') {
-            response.send('going into home page')
+            response.render('home');
         }
         else{
             // Go to login and registration page
