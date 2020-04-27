@@ -1,14 +1,83 @@
+header{
+	text-align: center;
+}
+
+.logo{
+	display: inline-block;
+	float: left;
+}
+
 .home-btn{
 	text-decoration: none;
 }
 
 h1{
 	color: rgb(255,214,209);
-	/*text-align: center;*/
 	display: inline;
 }
 
-.logo{
+.icon{
 	max-height: 50px;
-	max-width: 50px
+	max-width: 50px;
+}
+
+.searchbar-div{
+	display: inline-block;
+	margin: 3%;
+}
+
+.searchbar-field{
+	width: 250px;
+}
+
+h2{
+	color: rgb(255,214,209);
+	font-size: 2em;
+}
+
+.side-nav{
+	width: 15%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 15%;
+	border-right: solid #818181;
+}
+
+.side-nav-links{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.test1{
+	background-color: red;
+}
+
+.test2{
+	background-color: green;
+}
+
+.test3{
+	background-color: yellow;
+}
+
+@media screen and (max-height: 450px) {
+  .side-nav {padding-top: 15px;}
+  .side-nav-links {font-size: 10px;}
+}
+
+@media (max-width: 1010px) {
+  .side-nav {padding-top: 15px;}
+  .side-nav-links {font-size: 10px;}
+}
+
+@media (max-width: 550px) {
+  .side-nav {
+  	top: 21%;
+  	padding-right: 21%;
+  }
+  /*.side-nav-links {font-size: 10px;}*/
 }
