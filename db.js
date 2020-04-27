@@ -67,6 +67,13 @@ const allLoginModelsFunction = require('./models/login');
 
 const loginModelsObject = allLoginModelsFunction(pool);
 
+
+// Registration files
+const allRegistrationModelsFunction = require('./models/registration');
+
+const registrationModelsObject = allRegistrationModelsFunction(pool);
+
+
 // Home files
 const allHomeModelsFunction = require('./models/home');
 
@@ -99,7 +106,8 @@ module.exports = {
     */
 
     // users: userModelsObject,
-    loginPage: loginModelsObject,
-    homePage: homeModelsObject
+    login: loginModelsObject,
+    home: homeModelsObject,
+    registration: registrationModelsObject
 
 };

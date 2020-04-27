@@ -12,41 +12,28 @@ module.exports = (db) => {
         response.render('login');
     };
 
-    // let login = (request, response) => {
-    //     const username = request.query.username;
-    //     const password = request.query.password;
+    let login = (request, response) => {
+        const username = request.query.username;
+        const password = request.query.password;
 
-    //     // const whenQueryDone = (userID) => {
-    //     //   // Set cookies
-    //     //   response.cookie('loggedIn', 'true');
-    //     //   response.cookie('username', username);
-    //     //   response.cookie('userID', userID);
+        const hashPassword = sha256(password);
 
-    //     //   response.redirect('/');
-    //     // }
+        db.login.authenticateLogin(username, hashPassword)
+            .then((result) => {
+                const userID = result.rows[0].id;
 
-    //     // Check username and password
-    //     // Hash password
-    //     const hashPassword = sha256(password);
+                response.cookie('loggedIn', 'true');
+                response.cookie('username', username);
+                response.cookie('userID', userID);
 
-    //     let userID;
-
-    //     db.login.authenticateLogin(username, hashPassword)
-    //         .then((result) => {
-    //             const userID = result.rows[0].id;
-
-    //             response.cookie('loggedIn', 'true');
-    //             response.cookie('username', username);
-    //             response.cookie('userID', userID);
-
-    //             response.redirect('/');
-    //         })
-    //         .catch((err) => {
-    //             console.error(err.stack);
-    //         })
+                response.redirect('/');
+            })
+            .catch((err) => {
+                console.error(err.stack);
+            })
 
 
-    // }
+    }
 
 
     /**
@@ -56,6 +43,7 @@ module.exports = (db) => {
     */
 
     return{
-        loginPage: loginPage
+        loginPage: loginPage,
+        login: login
     }
 }
