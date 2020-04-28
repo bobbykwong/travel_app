@@ -28,8 +28,13 @@ module.exports = (db) => {
         }
     }
 
+    let addActivity = (request, response) => {
+        console.log(request.body);
+    }
+
 
     return{
-        dayPage: dayPage
+        dayPage: dayPage,
+        addActivity: addActivity
     }
 }
