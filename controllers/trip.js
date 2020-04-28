@@ -26,7 +26,7 @@ module.exports = (db) => {
                         // Start Date
                         let startDate = new Date(data.date_start)
                         const yearStart = startDate.getFullYear();
-                        const monthStart = startDate.getMonth();
+                        const monthStart = startDate.getMonth()+1;
                         const dayStart = startDate.getDate();
                         startDate = `${dayStart}-${monthStart}-${yearStart}`
                         data.date_start = startDate
@@ -34,7 +34,7 @@ module.exports = (db) => {
                         // End date
                         let endDate = new Date(data.date_end)
                         const yearEnd = endDate.getFullYear();
-                        const monthEnd = endDate.getMonth();
+                        const monthEnd = endDate.getMonth()+1;
                         const dayEnd = endDate.getDate();
                         endDate = `${dayEnd}-${monthEnd}-${yearEnd}`
 

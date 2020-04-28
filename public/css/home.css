@@ -26,13 +26,17 @@ h1{
 	max-width: 50px;
 }
 
-.searchbar-div{
+.your-trip{
+	color: rgb(255,214,209);
+	font-size: 50px;
+	text-align: center;
 	display: inline-block;
-	margin: 3%;
+	margin-top: 2%;
 }
 
 .searchbar-field{
-	width: 250px;
+	width: 140px;
+	font-size: 15px;
 }
 
 .new-trip{
@@ -52,12 +56,6 @@ h1{
 	color: rgb(255,214,209);
 }
 
-
-h2{
-	color: rgb(255,214,209);
-	font-size: 80px;
-}
-
 .side-nav{
 	width: 15%;
 	height: 100%;
@@ -75,17 +73,14 @@ h2{
   display: block;
 }
 
-/*.test1{
-	background-color: red;
+.main-body{
+	display: flex;
+	margin: 5% 25%;
 }
 
-.test2{
-	background-color: green;
+.trip{
+	background-color: pink;
 }
-
-.test3{
-	background-color: yellow;
-}*/
 
 @media screen and (max-height: 450px) {
   .side-nav {padding-top: 15px;}
