@@ -30,17 +30,19 @@ class Login extends React.Component {
                     </div>
                     )
 
+    // Loop over tripLength to get total number of days
     const tripLength = this.props.tripLength;
-
     const days = [];
     let i = 0;
     while(i<tripLength){
         const day = i+1;
         const dayURL = `/trip/${tripID}/day/${day}`
         days.push(
-                <a href={dayURL} className='days-div'>
-                    <p>DAY {day}</p>
-                </a>
+                <tr>
+                  <th scope="row">{day}</th>
+                  <td></td>
+                  <td><a href={dayURL}>edit</a></td>
+                </tr>
                 )
         i++;
     }
@@ -73,7 +75,18 @@ class Login extends React.Component {
             </nav>
             {tripHeader}
             <div className='days-body'>
-                {days}
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">DAY</th>
+                      <th scope="col">Highlight</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {days}
+                  </tbody>
+                </table>
             </div>
         </body>
       </html>
