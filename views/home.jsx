@@ -19,6 +19,9 @@ class Login extends React.Component {
                     </form>
                     )
 
+    const newTrip = (
+                    <a href='/newtrip' className='new-trip-link'>+</a>
+                    )
 
     return (
       <html>
@@ -38,25 +41,14 @@ class Login extends React.Component {
                 <div className='searchbar-div'>
                     {searchBar}
                 </div>
+                <div className='new-trip'>
+                    {newTrip}
+                </div>
             </header>
             <nav>
                 {sideNav}
             </nav>
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-3'>
-                    </div>
-                    <div className='col-3 test1'>
-                        hello
-                    </div>
-                    <div className='col-3 test2'>
-                        goodbye
-                    </div>
-                    <div className='col-3 test3'>
-                        see ya
-                    </div>
-
-                </div>
+            <div className='main-body'>
             </div>
         </body>
       </html>

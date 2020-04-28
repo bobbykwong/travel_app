@@ -11,9 +11,14 @@ header{
 	text-decoration: none;
 }
 
+.home-btn:hover{
+	text-decoration: none;
+}
+
 h1{
 	color: rgb(255,214,209);
 	display: inline;
+	text-decoration: none;
 }
 
 .icon{
@@ -30,9 +35,27 @@ h1{
 	width: 250px;
 }
 
+.new-trip{
+	display: inline-block;
+	float: right;
+	margin-right: 2%;
+}
+
+.new-trip-link{
+	text-decoration: none;
+	color: rgb(255,214,209);
+	font-size: 80px;
+}
+
+.new-trip-link:hover{
+	text-decoration: none;
+	color: rgb(255,214,209);
+}
+
+
 h2{
 	color: rgb(255,214,209);
-	font-size: 2em;
+	font-size: 80px;
 }
 
 .side-nav{
@@ -52,7 +75,7 @@ h2{
   display: block;
 }
 
-.test1{
+/*.test1{
 	background-color: red;
 }
 
@@ -62,7 +85,7 @@ h2{
 
 .test3{
 	background-color: yellow;
-}
+}*/
 
 @media screen and (max-height: 450px) {
   .side-nav {padding-top: 15px;}
