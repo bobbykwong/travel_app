@@ -24,5 +24,6 @@ CREATE TABLE IF NOT EXISTS activities(
 	time_start TEXT,
 	time_end TEXT,
 	location TEXT,
+	notes TEXT,
 	days_id INTEGER
 )

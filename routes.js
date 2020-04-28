@@ -40,4 +40,10 @@ module.exports = (app, allModels) => {
     const tripPage = require('./controllers/trip')(allModels);
 
     app.get('/trip/:id', tripPage.tripPage);
+
+
+    // Days page
+    const dayPage = require('./controllers/day')(allModels);
+
+    app.get('/trip/:id/day/:num', dayPage.dayPage);
 };
