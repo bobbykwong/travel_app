@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS users(
 CREATE TABLE IF NOT EXISTS trips(
 	id SERIAL PRIMARY KEY,
 	name TEXT,
-	date_start INTEGER,
-	date_end INTEGER,
+	date_start DATE,
+	date_end DATE,
 	country TEXT,
 	users_id INTEGER
 );

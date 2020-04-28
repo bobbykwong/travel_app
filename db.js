@@ -79,6 +79,16 @@ const allHomeModelsFunction = require('./models/home');
 
 const homeModelsObject = allHomeModelsFunction(pool);
 
+// New trip files
+const allNewTripModelsFunction = require('./models/newtrip');
+
+const newTripModelsObject = allNewTripModelsFunction(pool);
+
+// Trip files
+const allTripModelsFunction = require('./models/trip');
+
+const tripModelsObject = allTripModelsFunction(pool);
+
 /*
  * ===================================================
  * ===================================================
@@ -108,6 +118,7 @@ module.exports = {
     // users: userModelsObject,
     login: loginModelsObject,
     home: homeModelsObject,
-    registration: registrationModelsObject
-
+    registration: registrationModelsObject,
+    newTrip: newTripModelsObject,
+    trip: tripModelsObject
 };

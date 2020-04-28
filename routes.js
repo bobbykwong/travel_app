@@ -28,4 +28,16 @@ module.exports = (app, allModels) => {
     const homePage = require('./controllers/home')(allModels);
 
     app.get('/', homePage.homePage);
+
+    // New Trip page
+    const newTripPage = require('./controllers/newtrip')(allModels);
+
+    app.get('/newtrip', newTripPage.newTripPage);
+
+    app.post('/addnewtrip', newTripPage.addNewTrip);
+
+    // Trips page
+    const tripPage = require('./controllers/trip')(allModels);
+
+    app.get('/trip/:id', tripPage.tripPage);
 };

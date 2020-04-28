@@ -1,0 +1,93 @@
+header{
+	text-align: center;
+}
+
+.logo{
+	display: inline-block;
+	float: left;
+}
+
+.home-btn{
+	text-decoration: none;
+}
+
+.home-btn:hover{
+	text-decoration: none;
+}
+
+h1{
+	color: rgb(255,214,209);
+	display: inline;
+	text-decoration: none;
+}
+
+.icon{
+	max-height: 50px;
+	max-width: 50px;
+}
+
+.page-title{
+	display: inline-block;
+	margin: 3%;
+}
+
+h2{
+	color: rgb(255,214,209);
+	font-size: 80px;
+}
+
+.new-trip{
+	display: inline-block;
+	float: right;
+	margin-right: 2%;
+}
+
+.new-trip-link{
+	text-decoration: none;
+	color: rgb(255,214,209);
+	font-size: 80px;
+}
+
+.new-trip-link:hover{
+	text-decoration: none;
+	color: rgb(255,214,209);
+}
+
+.side-nav{
+	width: 15%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 15%;
+	border-right: solid #818181;
+}
+
+.side-nav-links{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.main-body{
+	margin-left: 50%;
+}
+
+@media screen and (max-height: 450px) {
+  .side-nav {padding-top: 15px;}
+  .side-nav-links {font-size: 10px;}
+}
+
+@media (max-width: 1010px) {
+  .side-nav {padding-top: 15px;}
+  .side-nav-links {font-size: 10px;}
+}
+
+@media (max-width: 550px) {
+  .side-nav {
+  	top: 21%;
+  	padding-right: 21%;
+  }
+  /*.side-nav-links {font-size: 10px;}*/
+}
