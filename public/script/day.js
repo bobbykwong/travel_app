@@ -107,12 +107,41 @@ const addForm = () => {
 
     const dayBody = document.querySelector('.days-body');
 
-    const activityForm = document.querySelector('.activity-form-div');
+    const activityForm = document.querySelectorAll('.activity-form-div')[document.querySelectorAll('.activity-form-div').length-1];
 
     let newActivityForm = activityForm.cloneNode(true);
 
     dayBody.insertBefore(newActivityForm, addActivityBtn);
 
+    // Change classname to appropriate form num
+    const activityFormDiv = document.querySelectorAll('.activity-form-div')[document.querySelectorAll('.activity-form-div').length-1];
+    activityFormDiv.classList.remove(`form-div${formNum-1}`)
+    activityFormDiv.classList.add(`form-div${formNum}`)
+
+    const activityTitle = document.querySelectorAll('.activity-title')[document.querySelectorAll('.activity-title').length-1];
+    activityTitle.classList.remove(`title${formNum-1}`)
+    activityTitle.classList.add(`title${formNum}`)
+
+    const activityLocation = document.querySelectorAll('.activity-location')[document.querySelectorAll('.activity-location').length-1];
+    activityLocation.classList.remove(`location${formNum-1}`)
+    activityLocation.classList.add(`location${formNum}`)
+
+    const activityTimeStart = document.querySelectorAll('.activity-timestart')[document.querySelectorAll('.activity-timestart').length-1];
+    activityTimeStart.classList.remove(`timestart${formNum-1}`)
+    activityTimeStart.classList.add(`timestart${formNum}`)
+
+    const activityTimeEnd = document.querySelectorAll('.activity-timeend')[document.querySelectorAll('.activity-timeend').length-1];
+    activityTimeEnd.classList.remove(`timeend${formNum-1}`)
+    activityTimeEnd.classList.add(`timeend${formNum}`)
+
+    const activityNotes = document.querySelectorAll('.activity-notes')[document.querySelectorAll('.activity-notes').length-1];
+    activityNotes.classList.remove(`notes${formNum-1}`)
+    activityNotes.classList.add(`notes${formNum}`)
+
+    const saveBtn = document.querySelectorAll('.save-btn')[document.querySelectorAll('.save-btn').length-1];
+    saveBtn.addEventListener('click', () => {
+        saveForm(formNum)
+    })
 
     // // Create activity form
     // const activityFormDiv = document.createElement('div');
