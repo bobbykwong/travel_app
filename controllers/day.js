@@ -14,6 +14,9 @@ module.exports = (db) => {
             const tripID = request.params.id;
             const dayNum = request.params.num;
 
+            // Update day num to cookies
+            response.cookie('daynum', dayNum);
+
             let data = {};
             data.username = username;
             data.id = tripID;
@@ -29,7 +32,18 @@ module.exports = (db) => {
     }
 
     let addActivity = (request, response) => {
-        console.log(request.body);
+        // Get activity details
+        const title = request.body.title;
+        const time_start = request.body.time_start;
+        const time_end = request.body.time_end;
+        const location = request.body.location;
+        const notes = request.body.notes;
+        const days_id = request.cookies.daynum;
+
+        db.day.addActivity(title, time_start, time_end, location, notes, days_id)
+            .then(results => {
+                console.log(results.rows);
+            })
     }
 
 

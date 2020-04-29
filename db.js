@@ -89,6 +89,11 @@ const allTripModelsFunction = require('./models/trip');
 
 const tripModelsObject = allTripModelsFunction(pool);
 
+// Day files
+const allDayModelsFunction = require('./models/day');
+
+const dayModelsObject = allDayModelsFunction(pool);
+
 /*
  * ===================================================
  * ===================================================
@@ -120,5 +125,6 @@ module.exports = {
     home: homeModelsObject,
     registration: registrationModelsObject,
     newTrip: newTripModelsObject,
-    trip: tripModelsObject
+    trip: tripModelsObject,
+    day: dayModelsObject
 };

@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS days(
 
 CREATE TABLE IF NOT EXISTS activities(
 	title TEXT,
-	time_start TEXT,
-	time_end TEXT,
+	time_start TIME,
+	time_end TIME,
 	location TEXT,
 	notes TEXT,
 	days_id INTEGER
