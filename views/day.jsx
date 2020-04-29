@@ -39,6 +39,26 @@ class Login extends React.Component {
                 </div>
                         )
 
+    const testForm = (
+        <div className="activity-form-div form-div0">
+            <form className="activity-form">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name='title' placeholder='Activity' className="form-control activity-title title0"></input><br></br>
+                        <input type='text' name='location' placeholder='Location' className="form-control activity-location location0"></input><br></br>
+                        <input type='time' name='time_start' className="form-control activity-timestart timestart0"></input>
+                        <input type='time' name='time_end' className="form-control activity-timeend timeend0"></input><br></br>
+                    </div>
+                    <div class="col">
+                        <input type='text' name='notes' placeholder='notes' className="form-control activity-notes notes0"></input>
+                        <button type='button' className = 'save-btn'>Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+                    )
+
     const addActivityBtn = (
                         <button type='button' class='add-activity-btn'>Add Activity</button>
                         )
@@ -46,8 +66,8 @@ class Login extends React.Component {
     return (
       <html>
         <head>
-            <link rel="stylesheet" type="text/css" href="/css/day.css" />
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossOrigin="anonymous" />
+            <link rel="stylesheet" type="text/css" href="/css/day.css" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </head>
         <body>
@@ -70,7 +90,7 @@ class Login extends React.Component {
             </nav>
             {dayHeader}
             <div className='days-body'>
-                {addActivity}
+                {testForm}
                 {addActivityBtn}
                 <div id="map"></div>
             </div>

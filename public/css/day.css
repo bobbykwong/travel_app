@@ -101,7 +101,7 @@ Activity form
 	margin-left: 19%;
 }
 
-.activity-form{
+/*.activity-form{
 	text-align: center;
 }
 
@@ -113,15 +113,19 @@ Activity form
 .activity-location{
 	width: 90%;
 	margin-top: 2%;
-}
+}*/
 
 .activity-timestart{
 	margin-top: 2%;
 	margin-right: 2%;
 }
 
-.label-timestart{
+/*.label-timestart{
 	margin-right: 7%;
+}*/
+
+.activity-notes{
+	height: 80%;
 }
 
 /***************
@@ -169,8 +173,8 @@ Activity Card
 #map{
 	height: 300px;
 	width: 70%;
-	margin-left: 15%;
-	bottom: -215px;
+	margin-left: 19%;
+	bottom: -100px;
 }
 
 @media screen and (max-height: 450px) {
