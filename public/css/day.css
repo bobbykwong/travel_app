@@ -96,6 +96,44 @@ h2{
 	text-decoration: none;
 }
 
+.activity-card-div{
+	max-width: 80%;
+	margin-left: 12%;
+	display: block;
+	border-bottom: solid #fc7f86;
+}
+
+.card-div0{
+	border-top: solid #fc7f86;
+}
+
+.card-title{
+	display: inline;
+	margin-left: 44%;
+}
+
+.edit-btn{
+	float: right;
+}
+
+.delete-btn{
+	float: right;
+}
+
+.card-time{
+	text-align: center;
+}
+
+.card-location{
+	text-align: center;
+}
+
+.card-notes{
+	text-align: center;
+}
+
+
+
 @media screen and (max-height: 450px) {
   .side-nav {padding-top: 15px;}
   .side-nav-links {font-size: 10px;}

@@ -47,7 +47,6 @@ const saveForm = (formNum) => {
 const createActivityCard = (title, time_start, time_end, location, notes, formNum) => {
     const activityCardDiv = document.createElement('div');
     activityCardDiv.className = "activity-card-div"
-    activityCardDiv.classList.add(`card`);
     activityCardDiv.classList.add(`card-div${formNum}`)
 
     const cardTitle = document.createElement('h3');
@@ -56,15 +55,10 @@ const createActivityCard = (title, time_start, time_end, location, notes, formNu
     cardTitle.classList.add(`card-title${formNum}`)
 
 
-    const cardTimeStart = document.createElement('p')
-    cardTimeStart.textContent = time_start;
-    cardTimeStart.className = `card-timestart`;
-    cardTimeStart.classList.add(`card-timestart-${formNum}`)
-
-    const cardTimeEnd = document.createElement('p')
-    cardTimeEnd.textContent = time_end;
-    cardTimeEnd.className = `card-timeend`;
-    cardTimeEnd.classList.add(`card-timeend-${formNum}`)
+    const cardTime = document.createElement('p')
+    cardTime.textContent = `${time_start} ➡ ${time_end}`;
+    cardTime.className = `card-time`;
+    cardTime.classList.add(`card-time-${formNum}`)
 
     const cardLocation = document.createElement('p')
     cardLocation.textContent = location;
@@ -94,12 +88,11 @@ const createActivityCard = (title, time_start, time_end, location, notes, formNu
 
     // Add all components inside activity card
     activityCardDiv.appendChild(cardTitle);
-    activityCardDiv.appendChild(cardTimeStart);
-    activityCardDiv.appendChild(cardTimeEnd);
+    activityCardDiv.appendChild(deleteBtn);
+    activityCardDiv.appendChild(editBtn);
+    activityCardDiv.appendChild(cardTime);
     activityCardDiv.appendChild(cardLocation);
     activityCardDiv.appendChild(cardNotes);
-    activityCardDiv.appendChild(editBtn);
-    activityCardDiv.appendChild(deleteBtn);
 
     // Add inside Document
     const dayBody = document.querySelector('.days-body');
