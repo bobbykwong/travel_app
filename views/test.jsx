@@ -48,6 +48,7 @@ class Login extends React.Component {
             <div className='main-body'>
                 <div id="map"></div>
             </div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&callback=initMap" async defer></script>
             <script src='/script/test.js'></script>
         </body>
       </html>

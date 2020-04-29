@@ -1,16 +1,10 @@
 console.log('hello');
 
 // Create the script tag, set the appropriate attributes
-var script1 = document.createElement('script');
+// var script1 = document.createElement('script');
 script1.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&callback=initMap&libraries=places';
-script1.defer = true;
-script1.async = true;
-
-// Create script tag for google maps library
-
-// var script2 = document.createElement('script');
-// script2.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&libraries=places';
-// script2.type = "text/javascript"
+// script1.defer = true;
+// script1.async = true;
 
 // Attach your callback function to the `window` object
 window.initMap = function() {
@@ -56,5 +50,5 @@ window.initMap = function() {
 
 
 // Append the 'script' element to 'head'
-document.head.appendChild(script1);
+// document.head.appendChild(script1);
 // document.head.appendChild(script2);

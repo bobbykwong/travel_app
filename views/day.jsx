@@ -25,13 +25,18 @@ class Login extends React.Component {
                     )
 
     const addActivity = (
-                <form className="activity-form">
-                    <input type="text" name='title' placeholder='Activity'></input><br></br>
-                    <input type='text' name='location' placeholder='Location'></input><br></br>
-                    <input type='time' name='time_start'></input><p>Time Start</p>
-                    <input type='time' name='time_end'></input><p>Time End</p><br></br>
-                    <input type='text' name='notes' placeholder='notes'></input><br></br>
-                </form>
+                <div className="activity-form-div form-div0">
+                    <form className="activity-form">
+                        <input type="text" name='title' placeholder='Activity' className="activity-title title0"></input><br></br>
+                        <input type='text' name='location' placeholder='Location' className="activity-location location0"></input><br></br>
+                        <input type='time' name='time_start' className="activity-timestart timestart0"></input>
+                        <input type='time' name='time_end' className="activity-timeend timeend0"></input><br></br>
+                        <label for='time_start' className='label-timestart labelstart0'>Time Start</label>
+                        <label for='time_end' className='label-timeend labelend0'>Time End</label><br></br>
+                        <input type='text' name='notes' placeholder='notes' className="activity-notes notes0"></input><br></br>
+                        <button type='button' className = 'save-btn'>Save</button>
+                    </form>
+                </div>
                         )
 
     const addActivityBtn = (
@@ -65,8 +70,11 @@ class Login extends React.Component {
             </nav>
             {dayHeader}
             <div className='days-body'>
+                {addActivity}
                 {addActivityBtn}
+                <div id="map"></div>
             </div>
+            <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&callback=initMap&libraries=places' async defer></script>
             <script src='/script/day.js'></script>
         </body>
       </html>

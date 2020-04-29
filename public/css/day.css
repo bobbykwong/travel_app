@@ -84,17 +84,51 @@ h2{
 }
 
 .add-activity-btn{
-	margin-left: 40%;
+	margin-left: 42%;
 	width: 200px;
+}
+
+
+/**************
+***************
+Activity form
+***************
+***************/
+
+.activity-form-div{
+	border: solid grey;
+	width: 70%;
+	margin-left: 19%;
 }
 
 .activity-form{
 	text-align: center;
 }
 
-.days-div p{
-	text-decoration: none;
+.activity-title{
+	width: 90%;
+	margin-top: 2%;
 }
+
+.activity-location{
+	width: 90%;
+	margin-top: 2%;
+}
+
+.activity-timestart{
+	margin-top: 2%;
+	margin-right: 2%;
+}
+
+.label-timestart{
+	margin-right: 7%;
+}
+
+/***************
+***************
+Activity Card
+***************
+***************/
 
 .activity-card-div{
 	max-width: 80%;
@@ -132,7 +166,12 @@ h2{
 	text-align: center;
 }
 
-
+#map{
+	height: 300px;
+	width: 70%;
+	margin-left: 15%;
+	bottom: -215px;
+}
 
 @media screen and (max-height: 450px) {
   .side-nav {padding-top: 15px;}
