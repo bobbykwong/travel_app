@@ -9,6 +9,10 @@ module.exports = (app, allModels) => {
     // *  =========================================
     // *  =========================================
 
+    // testing things
+    const testPage = require('./controllers/test')(allModels);
+
+    app.get('/test', testPage.testPage);
 
     // Login page
     const loginPage = require('./controllers/login')(allModels);
