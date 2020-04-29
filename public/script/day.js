@@ -6,6 +6,107 @@ Add activity form into day-body
 
 const addActivityBtn = document.querySelector('.add-activity-btn');
 
+
+// Create button function and send AJAX post request
+const saveForm = (formNum) => {
+    const activityFormDiv = document.querySelector(`.form-div${formNum}`);
+    const getTitle = document.querySelector(`.title${formNum}`).value
+    const getLocation = document.querySelector(`.location${formNum}`).value
+    const getTimeStart = document.querySelector(`.timestart${formNum}`).value
+    const getTimeEnd = document.querySelector(`.timeend${formNum}`).value
+    const getNotes = document.querySelector(`.notes${formNum}`).value
+
+    let data = {'title' : getTitle, 'location' : getLocation, 'time_start' : getTimeStart, 'time_end' : getTimeEnd, 'notes' : getNotes};
+
+    var request = new XMLHttpRequest();   // new HttpRequest instance
+
+    request.addEventListener("load", function(){
+      console.log("DONE");
+      activityFormDiv.style.display = 'none';
+
+      console.log(this.responseText);
+
+      const response = JSON.parse(this.responseText)
+
+      const title = response.title;
+      const time_start = response.time_start;
+      const time_end = response.time_end;
+      const location = response.location;
+      const notes = response.notes;
+
+      createActivityCard(title, time_start, time_end, location, notes, formNum);
+    });
+
+    request.open("POST", '/addactivity');
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    request.send(JSON.stringify(data));
+
+}
+
+const createActivityCard = (title, time_start, time_end, location, notes, formNum) => {
+    const activityCardDiv = document.createElement('div');
+    activityCardDiv.className = "activity-card-div"
+    activityCardDiv.classList.add(`card`);
+    activityCardDiv.classList.add(`card-div${formNum}`)
+
+    const cardTitle = document.createElement('h3');
+    cardTitle.textContent = title;
+    cardTitle.className = `card-title`;
+    cardTitle.classList.add(`card-title${formNum}`)
+
+
+    const cardTimeStart = document.createElement('p')
+    cardTimeStart.textContent = time_start;
+    cardTimeStart.className = `card-timestart`;
+    cardTimeStart.classList.add(`card-timestart-${formNum}`)
+
+    const cardTimeEnd = document.createElement('p')
+    cardTimeEnd.textContent = time_end;
+    cardTimeEnd.className = `card-timeend`;
+    cardTimeEnd.classList.add(`card-timeend-${formNum}`)
+
+    const cardLocation = document.createElement('p')
+    cardLocation.textContent = location;
+    cardLocation.className = `card-location`;
+    cardLocation.classList.add(`card-location-${formNum}`)
+
+    const cardNotes = document.createElement('p')
+    cardNotes.textContent = notes;
+    cardNotes.className = `card-notes`;
+    cardNotes.classList.add(`card-notes-${formNum}`);
+
+    const editBtn = document.createElement('button');
+    editBtn.setAttribute('type', 'button');
+    editBtn.className = 'edit-btn'
+    editBtn.textContent = 'Edit'
+    editBtn.addEventListener('click', () => {
+        console.log('editing');
+    });
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.setAttribute('type', 'button');
+    deleteBtn.className = 'delete-btn'
+    deleteBtn.textContent = 'Delete'
+    deleteBtn.addEventListener('click', () => {
+        console.log('deleting');
+    });
+
+    // Add all components inside activity card
+    activityCardDiv.appendChild(cardTitle);
+    activityCardDiv.appendChild(cardTimeStart);
+    activityCardDiv.appendChild(cardTimeEnd);
+    activityCardDiv.appendChild(cardLocation);
+    activityCardDiv.appendChild(cardNotes);
+    activityCardDiv.appendChild(editBtn);
+    activityCardDiv.appendChild(deleteBtn);
+
+    // Add inside Document
+    const dayBody = document.querySelector('.days-body');
+    dayBody.insertBefore(activityCardDiv, addActivityBtn);
+}
+
+
 const addForm = () => {
 
     // Get index of activity form
@@ -16,6 +117,7 @@ const addForm = () => {
     // Create activity form
     const activityFormDiv = document.createElement('div');
     activityFormDiv.className = "activity-form-div"
+    activityFormDiv.classList.add(`form-div${formNum}`)
 
     const activityForm = document.createElement('form');
     activityForm.className = "activity-form"
@@ -58,32 +160,9 @@ const addForm = () => {
     saveBtn.setAttribute('type', 'button');
     saveBtn.className = 'save-btn'
     saveBtn.textContent = 'Save'
-
-    // Create button function and send AJAX post request
-    const saveForm = () => {
-        const getTitle = document.querySelector(`.title${formNum}`).value
-        const getLocation = document.querySelector(`.location${formNum}`).value
-        const getTimeStart = document.querySelector(`.timestart${formNum}`).value
-        const getTimeEnd = document.querySelector(`.timeend${formNum}`).value
-        const getNotes = document.querySelector(`.notes${formNum}`).value
-
-        let data = {'title' : getTitle, 'location' : getLocation, 'time_start' : getTimeStart, 'time_end' : getTimeEnd, 'notes' : getNotes};
-
-        var request = new XMLHttpRequest();   // new HttpRequest instance
-
-        request.addEventListener("load", function(){
-
-          console.log("DONE");
-          console.log( this.responseText );
-        });
-
-        request.open("POST", '/addactivity');
-        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
-        request.send(JSON.stringify(data));
-
-    }
-    saveBtn.addEventListener('click', saveForm);
+    saveBtn.addEventListener('click', () => {
+        saveForm(formNum)
+    });
 
 
     activityForm.appendChild(title);

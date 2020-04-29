@@ -42,7 +42,7 @@ module.exports = (db) => {
 
         db.day.addActivity(title, time_start, time_end, location, notes, days_id)
             .then(results => {
-                console.log(results.rows);
+                response.send(results.rows[0]);
             })
     }
 
