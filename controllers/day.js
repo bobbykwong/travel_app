@@ -32,6 +32,8 @@ module.exports = (db) => {
     }
 
     let addActivity = (request, response) => {
+        console.log(request.body);
+
         // Get activity details
         const title = request.body.title;
         const time_start = request.body.time_start;

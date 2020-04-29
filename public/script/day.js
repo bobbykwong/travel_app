@@ -7,6 +7,12 @@ Add activity form into day-body
 const addActivityBtn = document.querySelector('.add-activity-btn');
 
 
+// Add event listener to save button
+const saveBtn = document.querySelector('.save-btn');
+saveBtn.addEventListener('click', () => {
+    saveForm(0)
+})
+
 // Create button function and send AJAX post request
 const saveForm = (formNum) => {
     const activityFormDiv = document.querySelector(`.form-div${formNum}`);
@@ -115,28 +121,34 @@ const addForm = () => {
 
     // Change classname to appropriate form num
     const activityFormDiv = document.querySelectorAll('.activity-form-div')[document.querySelectorAll('.activity-form-div').length-1];
-    activityFormDiv.classList.remove(`form-div${formNum-1}`)
-    activityFormDiv.classList.add(`form-div${formNum}`)
+    activityFormDiv.classList.remove(`form-div${formNum-1}`);
+    activityFormDiv.classList.add(`form-div${formNum}`);
+    activityFormDiv.style.display = 'block';
 
     const activityTitle = document.querySelectorAll('.activity-title')[document.querySelectorAll('.activity-title').length-1];
-    activityTitle.classList.remove(`title${formNum-1}`)
-    activityTitle.classList.add(`title${formNum}`)
+    activityTitle.classList.remove(`title${formNum-1}`);
+    activityTitle.classList.add(`title${formNum}`);
+    activityTitle.value = '';
 
     const activityLocation = document.querySelectorAll('.activity-location')[document.querySelectorAll('.activity-location').length-1];
     activityLocation.classList.remove(`location${formNum-1}`)
     activityLocation.classList.add(`location${formNum}`)
+    activityLocation.value = '';
 
     const activityTimeStart = document.querySelectorAll('.activity-timestart')[document.querySelectorAll('.activity-timestart').length-1];
     activityTimeStart.classList.remove(`timestart${formNum-1}`)
     activityTimeStart.classList.add(`timestart${formNum}`)
+    activityTimeStart.value = '';
 
     const activityTimeEnd = document.querySelectorAll('.activity-timeend')[document.querySelectorAll('.activity-timeend').length-1];
-    activityTimeEnd.classList.remove(`timeend${formNum-1}`)
-    activityTimeEnd.classList.add(`timeend${formNum}`)
+    activityTimeEnd.classList.remove(`timeend${formNum-1}`);
+    activityTimeEnd.classList.add(`timeend${formNum}`);
+    activityTimeEnd.value = '';
 
     const activityNotes = document.querySelectorAll('.activity-notes')[document.querySelectorAll('.activity-notes').length-1];
-    activityNotes.classList.remove(`notes${formNum-1}`)
-    activityNotes.classList.add(`notes${formNum}`)
+    activityNotes.classList.remove(`notes${formNum-1}`);
+    activityNotes.classList.add(`notes${formNum}`);
+    activityNotes.value = '';
 
     const saveBtn = document.querySelectorAll('.save-btn')[document.querySelectorAll('.save-btn').length-1];
     saveBtn.addEventListener('click', () => {
