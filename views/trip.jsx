@@ -1,18 +1,9 @@
 var React = require("react");
+var DefaultLayout = require("./components/layout/default")
 
-class Login extends React.Component {
+class Trip extends React.Component {
   render() {
-    const icon = <img src='/images/logo.svg' className='icon'></img>
-    const username = this.props.username;
     const tripID = this.props.id;
-
-    const sideNav = (
-            <div className="side-nav">
-                <p className='side-nav-links'>{username}</p>
-                <a href="#" className='side-nav-links'>Following</a><br></br>
-                <a href="#" className='side-nav-links'>Favourites</a>
-            </div>
-                )
 
     const tripName = this.props.name;
     const pageTitle = (
@@ -49,30 +40,7 @@ class Login extends React.Component {
 
 
     return (
-      <html>
-        <head>
-            <link rel="stylesheet" type="text/css" href="/css/trip.css" />
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossOrigin="anonymous" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        </head>
-        <body>
-            <header>
-                <div className='logo'>
-                    <a href='/' className='home-btn'>
-                    {icon}
-                    <h1>TRAVELAPP</h1>
-                    </a>
-                </div>
-                <div className='page-title'>
-                    {pageTitle}
-                </div>
-                <div className='new-trip'>
-                    {newTrip}
-                </div>
-            </header>
-            <nav>
-                {sideNav}
-            </nav>
+        <DefaultLayout title='homepage' css='/css/trip.css' pageTitle={pageTitle}>
             {tripHeader}
             <div className='days-body'>
                 <table class="table">
@@ -88,10 +56,9 @@ class Login extends React.Component {
                   </tbody>
                 </table>
             </div>
-        </body>
-      </html>
+        </DefaultLayout>
     );
   }
 }
 
-module.exports = Login;
+module.exports = Trip;

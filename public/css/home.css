@@ -1,43 +1,17 @@
-header{
-	text-align: center;
+.trips-div{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
 }
 
-.logo{
-	display: inline-block;
-	float: left;
+.trip{
+	background-color: pink;
+	width: 15%;
+	height: 25%;
+	margin: 0 5%;
 }
 
-.home-btn{
-	text-decoration: none;
-}
-
-.home-btn:hover{
-	text-decoration: none;
-}
-
-h1{
-	color: rgb(255,214,209);
-	display: inline;
-	text-decoration: none;
-}
-
-.icon{
-	max-height: 50px;
-	max-width: 50px;
-}
-
-.your-trip{
-	color: rgb(255,214,209);
-	font-size: 50px;
-	text-align: center;
-	display: inline-block;
-	margin-top: 2%;
-}
-
-.searchbar-field{
-	width: 140px;
-	font-size: 15px;
-}
 
 .new-trip{
 	display: inline-block;
@@ -54,48 +28,4 @@ h1{
 .new-trip-link:hover{
 	text-decoration: none;
 	color: rgb(255,214,209);
-}
-
-.side-nav{
-	width: 15%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	top: 15%;
-	border-right: solid #818181;
-}
-
-.side-nav-links{
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-.main-body{
-	display: flex;
-	margin: 5% 25%;
-}
-
-.trip{
-	background-color: pink;
-}
-
-@media screen and (max-height: 450px) {
-  .side-nav {padding-top: 15px;}
-  .side-nav-links {font-size: 10px;}
-}
-
-@media (max-width: 1010px) {
-  .side-nav {padding-top: 15px;}
-  .side-nav-links {font-size: 10px;}
-}
-
-@media (max-width: 550px) {
-  .side-nav {
-  	top: 21%;
-  	padding-right: 21%;
-  }
-  /*.side-nav-links {font-size: 10px;}*/
 }

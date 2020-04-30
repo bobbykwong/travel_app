@@ -1,6 +1,7 @@
 var React = require("react");
+var DefaultLayout = require('./components/layout/default');
 
-class Login extends React.Component {
+class Home extends React.Component {
   render() {
     const icon = <img src='./images/logo.svg' className='icon'></img>
 
@@ -19,7 +20,7 @@ class Login extends React.Component {
 
 
     const newTrip = (
-                    <a href='/newtrip' className='new-trip-link'>+</a>
+                <a href='/newtrip' className='new-trip-link'>+</a>
                     )
 
     const yourTrips = <h2 className='your-trip'>TRAVEL THE WORLD</h2>
@@ -38,35 +39,13 @@ class Login extends React.Component {
     })
 
     return (
-      <html>
-        <head>
-            <link rel="stylesheet" type="text/css" href="./css/home.css" />
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        </head>
-        <body>
-            <header>
-                <div className='logo'>
-                    <a href='/' className='home-btn'>
-                    {icon}
-                    <h1>TRAVELAPP</h1>
-                    </a>
-                </div>
-                {yourTrips}
-                <div className='new-trip'>
-                    {newTrip}
-                </div>
-            </header>
-            <nav>
-                {sideNav}
-            </nav>
-            <div className='main-body'>
+        <DefaultLayout title='homepage' css='/css/home.css' >
+            <div className='trips-div'>
                 {showTrips}
             </div>
-        </body>
-      </html>
+        </DefaultLayout>
     );
   }
 }
 
-module.exports = Login;
+module.exports = Home;
