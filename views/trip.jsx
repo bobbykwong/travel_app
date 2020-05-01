@@ -7,7 +7,7 @@ class Trip extends React.Component {
 
     const tripName = this.props.name;
     const pageTitle = (
-                    <h2>{tripName}</h2>
+                    <h2 className='page-title'>{tripName}</h2>
                     )
 
     const newTrip = (

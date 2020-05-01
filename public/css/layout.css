@@ -4,6 +4,7 @@ html{
 
 body{
 	height: 100%
+	font-size: 15px;
 }
 
 header{
@@ -35,9 +36,13 @@ h1{
 	max-width: 50px;
 }
 
+.page-title{
+	font-size: 2rem;
+}
+
 .searchbar-field{
 	width: 140px;
-	font-size: 15px;
+	font-size: 1rem;
 }
 
 .side-nav{
@@ -52,7 +57,7 @@ h1{
 .side-nav-links{
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 1rem;
   color: #818181;
   display: block;
 }
