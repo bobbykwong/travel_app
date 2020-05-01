@@ -1,91 +1,31 @@
-header{
-	text-align: center;
-}
-
-.logo{
-	display: inline-block;
-	float: left;
-}
-
-.home-btn{
-	text-decoration: none;
-}
-
-.home-btn:hover{
-	text-decoration: none;
-}
-
-h1{
-	color: rgb(255,214,209);
-	display: inline;
-	text-decoration: none;
-}
-
-.icon{
-	max-height: 50px;
-	max-width: 50px;
-}
-
-.page-title{
-	display: inline-block;
-	margin: 3%;
-}
 
 h2{
 	color: rgb(255,214,209);
-	font-size: 80px;
+	font-size: 4rem;
 }
 
-.new-trip{
-	display: inline-block;
-	float: right;
-	margin-right: 2%;
-}
-
-.new-trip-link{
-	text-decoration: none;
-	color: rgb(255,214,209);
-	font-size: 80px;
-}
-
-.new-trip-link:hover{
-	text-decoration: none;
-	color: rgb(255,214,209);
-}
-
-.side-nav{
-	width: 15%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	top: 15%;
-	border-right: solid #818181;
-}
-
-.side-nav-links{
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
 
 .day-header{
-	margin-left: 50%;
+	text-align: center;
 }
 
 .day-num{
 	font-size: 40px;
 }
 
-.days-body{
-	margin-left: 8%;
-	/*margin-right: 10%;*/
+.add-activity-btn-div{
+	text-align: center;
+	margin-top: 2%
+}
+.add-activity-btn{
+	text-align: center;
+	width: 15%;
 }
 
-.add-activity-btn{
-	margin-left: 42%;
-	width: 200px;
+#map{
+	height: 300px;
+	width: 70%;
+	margin: 10% auto;
 }
 
 
@@ -96,33 +36,26 @@ Activity form
 ***************/
 
 .activity-form-div{
-	border: solid grey;
+	border: solid #00000036;
 	width: 70%;
-	margin-left: 19%;
+	margin: 2% auto;
 }
 
-/*.activity-form{
-	text-align: center;
-}
-
-.activity-title{
-	width: 90%;
-	margin-top: 2%;
-}
-
-.activity-location{
-	width: 90%;
-	margin-top: 2%;
-}*/
 
 .activity-timestart{
-	margin-top: 2%;
-	margin-right: 2%;
+	display: inline;
+	width: 45%;
+	margin-right: 10%
 }
 
-/*.label-timestart{
-	margin-right: 7%;
-}*/
+.activity-timeend{
+	display: inline;
+	width: 45%;
+}
+
+.label-timestart{
+	margin-right: 41%;
+}
 
 .activity-notes{
 	height: 80%;
@@ -135,9 +68,6 @@ Activity Card
 ***************/
 
 .activity-card-div{
-	max-width: 80%;
-	margin-left: 12%;
-	display: block;
 	border-bottom: solid #fc7f86;
 }
 
@@ -168,29 +98,4 @@ Activity Card
 
 .card-notes{
 	text-align: center;
-}
-
-#map{
-	height: 300px;
-	width: 70%;
-	margin-left: 19%;
-	bottom: -100px;
-}
-
-@media screen and (max-height: 450px) {
-  .side-nav {padding-top: 15px;}
-  .side-nav-links {font-size: 10px;}
-}
-
-@media (max-width: 1010px) {
-  .side-nav {padding-top: 15px;}
-  .side-nav-links {font-size: 10px;}
-}
-
-@media (max-width: 550px) {
-  .side-nav {
-  	top: 21%;
-  	padding-right: 21%;
-  }
-  /*.side-nav-links {font-size: 10px;}*/
 }

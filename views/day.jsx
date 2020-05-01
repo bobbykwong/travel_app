@@ -1,45 +1,36 @@
 var React = require("react");
+var DefaultLayout = require("./components/layout/default");
 
 class Login extends React.Component {
   render() {
-    const icon = <img src='/images/logo.svg' className='icon'></img>
-    const username = this.props.username;
-    const tripID = this.props.id;
-
-    const sideNav = (
-            <div className="side-nav">
-                <p className='side-nav-links'>{username}</p>
-                <a href="#" className='side-nav-links'>Following</a><br></br>
-                <a href="#" className='side-nav-links'>Favourites</a>
-            </div>
-                )
-
-    const newTrip = (
-                    <a href='/newtrip' className='new-trip-link'>+</a>
-                    )
 
     const dayHeader = (
                     <div className='day-header'>
-                        <p className="day-num">DAY {this.props.dayNum}</p>
+                        <h2 className="day-num">DAY {this.props.days_id}</h2>
                     </div>
                     )
 
-    const addActivity = (
-                <div className="activity-form-div form-div0">
-                    <form className="activity-form">
-                        <input type="text" name='title' placeholder='Activity' className="activity-title title0"></input><br></br>
-                        <input type='text' name='location' placeholder='Location' className="activity-location location0"></input><br></br>
-                        <input type='time' name='time_start' className="activity-timestart timestart0"></input>
-                        <input type='time' name='time_end' className="activity-timeend timeend0"></input><br></br>
-                        <label for='time_start' className='label-timestart labelstart0'>Time Start</label>
-                        <label for='time_end' className='label-timeend labelend0'>Time End</label><br></br>
-                        <input type='text' name='notes' placeholder='notes' className="activity-notes notes0"></input><br></br>
-                        <button type='button' className = 'save-btn'>Save</button>
-                    </form>
-                </div>
-                        )
+    const allActivities = this.props.activities;
+    const showActivities = allActivities.map((el, i) => {
+        const divName = `activity-card-div card-div${i}`;
+        const titleName = `card-title card-title${i}`;
+        const timeName = `card-time card-time-${i}`;
+        const locationName = `card-location card-location-${i}`;
+        const notesName = `card-notes card-notes-${i}`
 
-    const testForm = (
+        return (
+            <div className={divName}>
+                <h3 className={titleName}>{el.title}</h3>
+                <button type="button" className='delete-btn'>Delete</button>
+                <button type="button" className='edit-btn'>Edit</button>
+                <p className={timeName}>{el.time_start} ➡ {el.time_end}</p>
+                <p className={locationName}>{el.location}</p>
+                <p className={notesName}>{el.notes}</p>
+            </div>
+            )
+    })
+
+    const addActivityForm = (
         <div className="activity-form-div form-div0">
             <form className="activity-form">
                 <div class="row">
@@ -48,6 +39,8 @@ class Login extends React.Component {
                         <input type='text' name='location' placeholder='Location' className="form-control activity-location location0"></input><br></br>
                         <input type='time' name='time_start' className="form-control activity-timestart timestart0"></input>
                         <input type='time' name='time_end' className="form-control activity-timeend timeend0"></input><br></br>
+                        <label className="label-timestart" for="activity-timestart">Start</label>
+                        <label className="label-timeend" for="activity-timestart">End</label>
                     </div>
                     <div class="col">
                         <input type='text' name='notes' placeholder='notes' className="form-control activity-notes notes0"></input>
@@ -60,44 +53,23 @@ class Login extends React.Component {
                     )
 
     const addActivityBtn = (
-                        <button type='button' class='add-activity-btn'>Add Activity</button>
+                        <div className='add-activity-btn-div'>
+                            <button type='button' className='add-activity-btn'>Add Activity</button>
+                        </div>
                         )
 
     return (
-      <html>
-        <head>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossOrigin="anonymous" />
-            <link rel="stylesheet" type="text/css" href="/css/day.css" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        </head>
-        <body>
-            <header>
-                <div className='logo'>
-                    <a href='/' className='home-btn'>
-                    {icon}
-                    <h1>TRAVELAPP</h1>
-                    </a>
-                </div>
-                <div className='page-title'>
-
-                </div>
-                <div className='new-trip'>
-                    {newTrip}
-                </div>
-            </header>
-            <nav>
-                {sideNav}
-            </nav>
+        <DefaultLayout title='day' css='/css/day.css'>
             {dayHeader}
             <div className='days-body'>
-                {testForm}
+                {showActivities}
+                {addActivityForm}
                 {addActivityBtn}
                 <div id="map"></div>
             </div>
             <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&callback=initMap&libraries=places' async defer></script>
             <script src='/script/day.js'></script>
-        </body>
-      </html>
+        </DefaultLayout>
     );
   }
 }

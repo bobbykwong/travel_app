@@ -16,6 +16,7 @@ class Trip extends React.Component {
 
     const tripHeader = (
                     <div className='trip-header'>
+                        <h2 className='page-title'>{tripName}</h2>
                         <p className="country">{this.props.country}</p>
                         <p>{this.props.date_start} ➡ {this.props.date_end}</p>
                     </div>
@@ -40,7 +41,7 @@ class Trip extends React.Component {
 
 
     return (
-        <DefaultLayout title='homepage' css='/css/trip.css' pageTitle={pageTitle}>
+        <DefaultLayout title='trip' css='/css/trip.css'>
             {tripHeader}
             <div className='days-body'>
                 <table class="table">

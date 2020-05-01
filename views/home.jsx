@@ -7,21 +7,13 @@ class Home extends React.Component {
 
     const username = this.props.username;
 
-    const sideNav = (
-            <div className="side-nav">
-                <p className='side-nav-links'>{username}</p>
-                <form className='side-nav-links'>
-                    <input type='text' name='country' placeholder='Search a Country' className='searchbar-field'></input>
-                </form>
-                <a href="#" className='side-nav-links'>Following</a><br></br>
-                <a href="#" className='side-nav-links'>Favourites</a>
-            </div>
-                )
-
-
     const newTrip = (
                 <a href='/newtrip' className='new-trip-link'>+</a>
                     )
+
+    const pageTitle = (
+            <h2>YOUR TRIPS</h2>
+        )
 
     const yourTrips = <h2 className='your-trip'>TRAVEL THE WORLD</h2>
 
@@ -39,7 +31,7 @@ class Home extends React.Component {
     })
 
     return (
-        <DefaultLayout title='homepage' css='/css/home.css' >
+        <DefaultLayout title='homepage' css='/css/home.css' pageTitle={pageTitle}>
             <div className='trips-div'>
                 {showTrips}
             </div>

@@ -4,12 +4,13 @@ Add activity form into day-body
 =======================
 ***********************/
 
-const addActivityBtn = document.querySelector('.add-activity-btn');
+const addActivityBtn = document.querySelector('.add-activity-btn-div');
 
 
 // Add event listener to save button
 const saveBtn = document.querySelector('.save-btn');
 saveBtn.addEventListener('click', () => {
+    // const formNum = document.querySelectorAll('.activity-form-div').length;
     saveForm(0)
 })
 
@@ -40,7 +41,8 @@ const saveForm = (formNum) => {
       const location = response.location;
       const notes = response.notes;
 
-      createActivityCard(title, time_start, time_end, location, notes, formNum);
+      const cardNum = document.querySelectorAll('.activity-card-div').length
+      createActivityCard(title, time_start, time_end, location, notes, cardNum);
     });
 
     request.open("POST", '/addactivity');

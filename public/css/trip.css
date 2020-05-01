@@ -1,22 +1,18 @@
-
-
 h2{
 	color: rgb(255,214,209);
-	font-size: 80px;
+	font-size: 4rem;
 }
 
 
 .trip-header{
-	margin-left: 50%;
+	text-align: center;
 }
 
 .country{
-	font-size: 40px;
+	font-size: 2rem;
 }
 
 .days-body{
-	margin-left: 25%;
-	margin-right: 10%;
 }
 
 .days-div{

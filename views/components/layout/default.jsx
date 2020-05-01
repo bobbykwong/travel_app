@@ -5,18 +5,15 @@ class DefaultLayout extends React.Component {
         const icon = <img src='/images/logo.svg' className='icon'></img>
 
         const sideNav = (
-        <div className="side-nav">
-            <form className='side-nav-links'>
-                <input type='text' name='country' placeholder='Search a Country' className='searchbar-field'></input>
-            </form>
-            <a href="#" className='side-nav-links'>Following</a><br></br>
-            <a href="#" className='side-nav-links'>Favourites</a>
-        </div>
+        <ul class="nav justify-content-center nav-pills">
+          <li class="nav-item link-item">
+            <a class="nav-link link-item-single active" href="/">YOUR TRIPS</a>
+          </li>
+          <li class="nav-item link-item">
+            <a class="nav-link link-item-single" href="#">Link</a>
+          </li>
+        </ul>
             )
-
-        const newTrip = (
-                    <a href='/newtrip' className='new-trip-link'>+</a>
-                    )
 
 
         return(
@@ -36,16 +33,10 @@ class DefaultLayout extends React.Component {
                             <h1>TRAVELAPP</h1>
                             </a>
                         </div>
-                        <div className='page-title'>
-                            {this.props.pageTitle}
-                        </div>
-                        <div className='new-trip'>
-                            {newTrip}
-                        </div>
+                        <nav>
+                            {sideNav}
+                        </nav>
                     </header>
-                    <nav>
-                        {sideNav}
-                    </nav>
                     <div className='main-body'>
                         {this.props.children}
                     </div>
