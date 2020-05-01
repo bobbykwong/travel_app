@@ -63,7 +63,7 @@ module.exports = (db) => {
 
         // delete from database
         db.day.deleteActivity(id)
-            .then(console.log('done'));
+            .then(() => console.log('deleted from database'));
     }
 
 

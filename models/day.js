@@ -23,7 +23,8 @@ module.exports = (dbPoolInstance) => {
     let deleteActivity = (id) => {
         let queryString = `delete from activities where id=${id}`;
 
-        return dbPoolInstance.query(queryString);
+        return dbPoolInstance.query(queryString)
+            .then(response.send('delete'))
     }
 
     return {

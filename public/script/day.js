@@ -95,7 +95,7 @@ const createActivityCard = (title, time_start, time_end, location, notes, formNu
     deleteBtn.classList.add( `delete${id}`);
     deleteBtn.textContent = 'Delete'
     deleteBtn.addEventListener('click', () => {
-        console.log('deleting');
+        deleteForm(id)
     });
 
     // Add all components inside activity card
@@ -246,7 +246,13 @@ const deleteForm = (activityID) => {
     var request = new XMLHttpRequest();   // new HttpRequest instance
 
     request.addEventListener("load", function(){
-        console.log("DELETED");
+        console.log(this.responseText);
+
+        // remove activity from UI
+        const parentNode = document.querySelector('.days-body');
+        const childNode = document.querySelector(`.activityid${activityID}`)
+        parentNode.removeChild(childNode);
+        console.log('done removing from DOM')
     });
 
     request.open("POST", `/deleteactivity/${activityID}/?_method=delete`);
