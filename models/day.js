@@ -20,8 +20,15 @@ module.exports = (dbPoolInstance) => {
         return dbPoolInstance.query(queryString);
     }
 
+    let deleteActivity = (id) => {
+        let queryString = `delete from activities where id=${id}`;
+
+        return dbPoolInstance.query(queryString);
+    }
+
     return {
         addActivity,
-        allActivities
+        allActivities,
+        deleteActivity
     };
 };

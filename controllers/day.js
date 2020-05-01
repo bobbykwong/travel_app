@@ -38,7 +38,7 @@ module.exports = (db) => {
             // Go to login and registration page
             response.redirect('/login');
         }
-    }
+    };
 
     let addActivity = (request, response) => {
         console.log(request.body);
@@ -56,11 +56,20 @@ module.exports = (db) => {
             .then(results => {
                 response.send(results.rows[0]);
             })
+    };
+
+    let deleteActivity = (request, response) => {
+        const id = request.params.id;
+
+        // delete from database
+        db.day.deleteActivity(id)
+            .then(console.log('done'));
     }
 
 
     return{
         dayPage: dayPage,
-        addActivity: addActivity
+        addActivity: addActivity,
+        deleteActivity: deleteActivity
     }
 }

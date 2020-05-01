@@ -17,9 +17,9 @@ class Login extends React.Component {
         const titleName = `card-title card-title${i}`;
         const timeName = `card-time card-time-${i}`;
         const locationName = `card-location card-location-${i}`;
-        const notesName = `card-notes card-notes-${i}`
-        const deleteName = `delete-btn delete${i}`;
-        const editName = `edit-btn edit${i}`;
+        const notesName = `card-notes card-notes-${i+1}`
+        const deleteName = `delete-btn delete${el.id}`;
+        const editName = `edit-btn edit${el.id}`;
 
         return (
             <div className={divName}>

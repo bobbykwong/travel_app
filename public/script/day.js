@@ -83,7 +83,7 @@ const createActivityCard = (title, time_start, time_end, location, notes, formNu
     const editBtn = document.createElement('button');
     editBtn.setAttribute('type', 'button');
     editBtn.className = 'edit-btn'
-    editBtn.classList.add( `edit${formNum}`);
+    editBtn.classList.add( `edit${id}`);
     editBtn.textContent = 'Edit'
     editBtn.addEventListener('click', () => {
         console.log('editing');
@@ -92,7 +92,7 @@ const createActivityCard = (title, time_start, time_end, location, notes, formNu
     const deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('type', 'button');
     deleteBtn.className = 'delete-btn'
-    deleteBtn.classList.add( `delete${formNum}`);
+    deleteBtn.classList.add( `delete${id}`);
     deleteBtn.textContent = 'Delete'
     deleteBtn.addEventListener('click', () => {
         console.log('deleting');
@@ -232,12 +232,29 @@ Create function for delete button
 =========================
 *********************/
 
-// const allDeleteBtn = document.querySelectorAll('.delete-btn');
-// allDeleteBtn.forEach(el => {
-//     el.addEventListener('click', () => {
-//         deleteForm()
-//     })
-// })
+const allDeleteBtn = document.querySelectorAll('.delete-btn');
+allDeleteBtn.forEach(el => {
+    // Get the ID of the acitivity from className
+    const activityID = el.classList[1].slice(6);
+
+    el.addEventListener('click', () => {
+        deleteForm(activityID)
+    })
+})
+
+const deleteForm = (activityID) => {
+    var request = new XMLHttpRequest();   // new HttpRequest instance
+
+    request.addEventListener("load", function(){
+        console.log("DELETED");
+    });
+
+    request.open("POST", `/deleteactivity/${activityID}/?_method=delete`);
+
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    request.send();
+}
 
 
 

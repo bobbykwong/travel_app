@@ -52,4 +52,6 @@ module.exports = (app, allModels) => {
     app.get('/trip/:id/day/:num', dayPage.dayPage);
 
     app.post('/addactivity', dayPage.addActivity);
+
+    app.delete('/deleteactivity/:id', dayPage.deleteActivity);
 };
