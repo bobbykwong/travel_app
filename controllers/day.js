@@ -26,7 +26,7 @@ module.exports = (db) => {
                 .then((results) => {
                     data.activities = results.rows;
                     data.username = username;
-                    data.id = trips_id;
+                    data.trips_id = trips_id;
                     data.days_id = days_id;
                     console.log(data);
                     response.render('day', data);

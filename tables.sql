@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS days(
 );
 
 CREATE TABLE IF NOT EXISTS activities(
+	id SERIAL PRIMARY KEY,
 	title TEXT,
 	time_start TIME,
 	time_end TIME,

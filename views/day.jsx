@@ -11,18 +11,21 @@ class Login extends React.Component {
                     )
 
     const allActivities = this.props.activities;
+
     const showActivities = allActivities.map((el, i) => {
-        const divName = `activity-card-div card-div${i}`;
+        const divName = `activity-card-div card-div${i} activityid${el.id}`;
         const titleName = `card-title card-title${i}`;
         const timeName = `card-time card-time-${i}`;
         const locationName = `card-location card-location-${i}`;
         const notesName = `card-notes card-notes-${i}`
+        const deleteName = `delete-btn delete${i}`;
+        const editName = `edit-btn edit${i}`;
 
         return (
             <div className={divName}>
                 <h3 className={titleName}>{el.title}</h3>
-                <button type="button" className='delete-btn'>Delete</button>
-                <button type="button" className='edit-btn'>Edit</button>
+                <button type="button" className={deleteName}>Delete</button>
+                <button type="button" className={editName}>Edit</button>
                 <p className={timeName}>{el.time_start} ➡ {el.time_end}</p>
                 <p className={locationName}>{el.location}</p>
                 <p className={notesName}>{el.notes}</p>

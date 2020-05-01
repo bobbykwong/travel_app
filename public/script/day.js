@@ -28,21 +28,22 @@ const saveForm = (formNum) => {
     var request = new XMLHttpRequest();   // new HttpRequest instance
 
     request.addEventListener("load", function(){
-      console.log("DONE");
-      activityFormDiv.style.display = 'none';
+        console.log("DONE");
+        activityFormDiv.style.display = 'none';
 
-      console.log(this.responseText);
+        console.log(this.responseText);
 
-      const response = JSON.parse(this.responseText)
+        const response = JSON.parse(this.responseText)
 
-      const title = response.title;
-      const time_start = response.time_start;
-      const time_end = response.time_end;
-      const location = response.location;
-      const notes = response.notes;
+        const id = response.id;
+        const title = response.title;
+        const time_start = response.time_start;
+        const time_end = response.time_end;
+        const location = response.location;
+        const notes = response.notes;
 
-      const cardNum = document.querySelectorAll('.activity-card-div').length
-      createActivityCard(title, time_start, time_end, location, notes, cardNum);
+        const cardNum = document.querySelectorAll('.activity-card-div').length
+        createActivityCard(title, time_start, time_end, location, notes, cardNum, id);
     });
 
     request.open("POST", '/addactivity');
@@ -52,10 +53,11 @@ const saveForm = (formNum) => {
 
 }
 
-const createActivityCard = (title, time_start, time_end, location, notes, formNum) => {
+const createActivityCard = (title, time_start, time_end, location, notes, formNum, id) => {
     const activityCardDiv = document.createElement('div');
-    activityCardDiv.className = "activity-card-div"
-    activityCardDiv.classList.add(`card-div${formNum}`)
+    activityCardDiv.className = "activity-card-div";
+    activityCardDiv.classList.add(`card-div${formNum}`);
+    activityCardDiv.classList.add(`activityid${id}`);
 
     const cardTitle = document.createElement('h3');
     cardTitle.textContent = title;
@@ -81,6 +83,7 @@ const createActivityCard = (title, time_start, time_end, location, notes, formNu
     const editBtn = document.createElement('button');
     editBtn.setAttribute('type', 'button');
     editBtn.className = 'edit-btn'
+    editBtn.classList.add( `edit${formNum}`);
     editBtn.textContent = 'Edit'
     editBtn.addEventListener('click', () => {
         console.log('editing');
@@ -89,6 +92,7 @@ const createActivityCard = (title, time_start, time_end, location, notes, formNu
     const deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('type', 'button');
     deleteBtn.className = 'delete-btn'
+    deleteBtn.classList.add( `delete${formNum}`);
     deleteBtn.textContent = 'Delete'
     deleteBtn.addEventListener('click', () => {
         console.log('deleting');
@@ -220,6 +224,22 @@ const addForm = () => {
 }
 
 addActivityBtn.addEventListener('click', addForm);
+
+
+/**********************
+======================
+Create function for delete button
+=========================
+*********************/
+
+// const allDeleteBtn = document.querySelectorAll('.delete-btn');
+// allDeleteBtn.forEach(el => {
+//     el.addEventListener('click', () => {
+//         deleteForm()
+//     })
+// })
+
+
 
 
 /**********************
