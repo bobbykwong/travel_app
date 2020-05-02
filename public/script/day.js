@@ -8,10 +8,12 @@ const addActivityBtn = document.querySelector('.add-activity-btn-div');
 
 
 // Add event listener to save button
-const saveBtn = document.querySelector('.save-btn');
-saveBtn.addEventListener('click', () => {
-    // const formNum = document.querySelectorAll('.activity-form-div').length;
-    saveForm(0)
+const saveBtn = document.querySelectorAll('.save-btn');
+saveBtn.forEach((el, i) => {
+    el.addEventListener('click', () => {
+        // const formNum = document.querySelectorAll('.activity-form-div').length;
+        saveForm(i);
+    })
 })
 
 // Create button function and send AJAX post request
@@ -138,8 +140,10 @@ const addForm = () => {
     activityTitle.value = '';
 
     const activityLocation = document.querySelectorAll('.activity-location')[document.querySelectorAll('.activity-location').length-1];
-    activityLocation.classList.remove(`location${formNum-1}`)
-    activityLocation.classList.add(`location${formNum}`)
+    activityLocation.classList.remove(`location${formNum-1}`);
+    activityLocation.classList.add(`autocomplete`);
+    activityLocation.classList.add(`location${formNum}`);
+    activityLocation.onFocus="geolocate()"
     activityLocation.value = '';
 
     const activityTimeStart = document.querySelectorAll('.activity-timestart')[document.querySelectorAll('.activity-timestart').length-1];
@@ -237,21 +241,31 @@ const allDeleteBtn = document.querySelectorAll('.delete-btn');
 allDeleteBtn.forEach(el => {
     // Get the ID of the acitivity from className
     const activityID = el.classList[1].slice(6);
-
+    console.log('activityID: ' + activityID)
     el.addEventListener('click', () => {
         deleteForm(activityID)
     })
 })
 
 const deleteForm = (activityID) => {
+    console.log('about to delete in database')
     var request = new XMLHttpRequest();   // new HttpRequest instance
 
     request.addEventListener("load", function(){
         console.log(this.responseText);
 
-        // remove activity from UI
-        const parentNode = document.querySelector('.days-body');
+        console.log('starting to delete from UI')
+        // remove activity card from UI
         const childNode = document.querySelector(`.activityid${activityID}`)
+
+        // Get form card number from div
+        divClassName = childNode.className.split(' ')[1]
+        console.log(divClassName)
+        divClassNum = divClassName.slice(8);
+        console.log(divClassNum);
+
+        parentNode = document.querySelector(`.form-card${divClassNum}`)
+
         parentNode.removeChild(childNode);
         console.log('done removing from DOM')
     });
@@ -379,26 +393,47 @@ window.initMap = function() {
     // JS API is loaded and available
     let map = new google.maps.Map(document.getElementById('map'), {
         center: country,
-        zoom: 6
+        zoom: 12
     });
 
+    // Add a marker on all locations
+    const allLocations = document.querySelectorAll('.card-location')
+    console.log(allLocations);
 
-    let request = {
-        query: 'Museum of Contemporary Art Australia',
-        fields: ['name', 'geometry'],
-    };
+    let request = [];
+    allLocations.forEach(el => {
+        request.push(
+            {
+                query: el.textContent,
+                fields: ['name', 'geometry']
+            }
+        )
+    })
+
+    // let request = [
+    //     {
+    //         query: 'Museum of Contemporary Art Australia',
+    //         fields: ['name', 'geometry'],
+    //     },
+    //     {
+    //         query: 'Darling Point',
+    //         fields: ['name', 'geometry'],
+    //     }
+    // ];
 
     var service = new google.maps.places.PlacesService(map);
 
-    service.findPlaceFromQuery(request, function(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                createMarker(results[i]);
-            }
+    request.forEach(el => {
+        service.findPlaceFromQuery(el, function(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                }
 
-            map.setCenter(results[0].geometry.location);
-        }
-    });
+                map.setCenter(results[0].geometry.location);
+            }
+        });
+    })
 
     function createMarker(place) {
         var marker = new google.maps.Marker({
@@ -420,36 +455,21 @@ window.initMap = function() {
 Enable Google Map autocomplete
 =======================
 ***********************/
-let autocomplete;
+let autocomplete = [];
 function initAutocomplete() {
     // Create the autocomplete object, restricting the search predictions to
     // geographical location types.
-    autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('autocomplete'), {types: ['geocode']});
+    document.querySelectorAll('.autocomplete').forEach(el => {
+        autocomplete.push(new google.maps.places.Autocomplete(
+          el, {types: ['geocode']}));
+    })
 
     // Avoid paying for data that you don't need by restricting the set of
     // place fields that are returned to just the geometry components.
-    autocomplete.setFields(['geometry']);
-
-    // When the user selects an address from the drop-down, populate the
-    // address fields in the form.
-    autocomplete.addListener('place_changed', fillInAddress);
+    autocomplete.forEach(el => {
+        el.setFields(['geometry']);
+    })
 }
-
-function fillInAddress() {
-    // Get the place details from the autocomplete object.
-    var place = autocomplete.getPlace();
-    const lat = place.geometry.location.lat();
-    const lng = place.geometry.location.lng();
-
-    // Set lat lng as values for input
-    const inputLat = document.querySelector('.lat');
-    inputLat.value = lat;
-
-    const inputLng = document.querySelector('.lng');
-    inputLng.value = lng;
-}
-
 
 // Bias the autocomplete object to the user's geographical location,
 // as supplied by the browser's 'navigator.geolocation' object.

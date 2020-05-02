@@ -18,7 +18,7 @@ class Login extends React.Component {
         const titleUpdate = `form-control activity-title title${i}`;
         const timeStartUpdate = `form-control activity-timestart timestart${i}`;
         const timeEndUpdate = `form-control activity-timeend timeend${i}`;
-        const locationUpdate = `form-control activity-location location${i}`;
+        const locationUpdate = `form-control autocomplete activity-location location${i}`;
         const notesUpdate = `form-control activity-notes notes${i}`
         const updateBtn = `update-btn updateform${i} update${el.id}`
 
@@ -39,7 +39,7 @@ class Login extends React.Component {
                         <div className="row">
                             <div className="col">
                                 <input type="text" name='title' placeholder={el.title} className={titleUpdate} value={el.title}></input><br></br>
-                                <input type='text' name='location' placeholder={el.location} className={locationUpdate} id="autocomplete" onFocus="geolocate()" value={el.location}></input><br></br>
+                                <input type='text' name='location' placeholder={el.location} className={locationUpdate} onFocus="geolocate()" value={el.location}></input><br></br>
                                 <input type='time' name='time_start' className={timeStartUpdate} value={el.time_start}></input>
                                 <input type='time' name='time_end' className={timeEndUpdate} value={el.time_end}></input><br></br>
                                 <label className="label-timestart" for="activity-timestart">Start</label>
@@ -72,7 +72,7 @@ class Login extends React.Component {
         const titleUpdate = `form-control activity-title title${num}`;
         const timeStartUpdate = `form-control activity-timestart timestart${num}`;
         const timeEndUpdate = `form-control activity-timeend timeend${num}`;
-        const locationUpdate = `form-control activity-location location${num}`;
+        const locationUpdate = `form-control autocomplete activity-location location${num}`;
         const notesUpdate = `form-control activity-notes notes${num}`
 
         return (
@@ -82,7 +82,7 @@ class Login extends React.Component {
                         <div class="row">
                             <div class="col">
                                 <input type="text" name='title' placeholder='Activity' className="form-control activity-title title0"></input><br></br>
-                                <input type='text' name='location' placeholder='Location' className={locationUpdate} id="autocomplete" onFocus="geolocate()"></input><br></br>
+                                <input type='text' name='location' placeholder='Location' className={locationUpdate} onFocus="geolocate()"></input><br></br>
                                 <input type='time' name='time_start' className={timeStartUpdate}></input>
                                 <input type='time' name='time_end' className={timeEndUpdate}></input><br></br>
                                 <label className="label-timestart" for="activity-timestart">Start</label>
