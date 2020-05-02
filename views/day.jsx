@@ -39,7 +39,7 @@ class Login extends React.Component {
                         <div className="row">
                             <div className="col">
                                 <input type="text" name='title' placeholder={el.title} className={titleUpdate} value={el.title}></input><br></br>
-                                <input type='text' name='location' placeholder={el.location} className={locationUpdate} value={el.location}></input><br></br>
+                                <input type='text' name='location' placeholder={el.location} className={locationUpdate} id="autocomplete" onFocus="geolocate()" value={el.location}></input><br></br>
                                 <input type='time' name='time_start' className={timeStartUpdate} value={el.time_start}></input>
                                 <input type='time' name='time_end' className={timeEndUpdate} value={el.time_end}></input><br></br>
                                 <label className="label-timestart" for="activity-timestart">Start</label>
@@ -82,7 +82,7 @@ class Login extends React.Component {
                         <div class="row">
                             <div class="col">
                                 <input type="text" name='title' placeholder='Activity' className="form-control activity-title title0"></input><br></br>
-                                <input type='text' name='location' placeholder='Location' className={locationUpdate}></input><br></br>
+                                <input type='text' name='location' placeholder='Location' className={locationUpdate} id="autocomplete" onFocus="geolocate()"></input><br></br>
                                 <input type='time' name='time_start' className={timeStartUpdate}></input>
                                 <input type='time' name='time_end' className={timeEndUpdate}></input><br></br>
                                 <label className="label-timestart" for="activity-timestart">Start</label>
@@ -122,7 +122,7 @@ class Login extends React.Component {
                 {addActivityBtn}
                 <div id="map" className={countryDetails}></div>
             </div>
-            <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&callback=initMap&libraries=places' async defer></script>
+            <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&libraries=places&callback=initialize' async defer></script>
             <script src='/script/day.js'></script>
         </DefaultLayout>
     );
