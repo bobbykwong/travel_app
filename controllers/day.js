@@ -66,10 +66,27 @@ module.exports = (db) => {
             .then(() => console.log('deleted from database'));
     }
 
+    let updateActivity = (request, response) => {
+        const title = request.body.title;
+        const location = request.body.location;
+        const time_start = request.body.time_start;
+        const time_end = request.body.time_end;
+        const notes = request.body.notes;
+        const id = request.params.id;
+
+        db.day.updateActivity(id, title, location, time_start, time_end, notes)
+            .then((results) => {
+                return db.day.singleActivity(id)
+            })
+            .then(results => {
+                response.send(results.rows);
+            })
+    }
 
     return{
         dayPage: dayPage,
         addActivity: addActivity,
-        deleteActivity: deleteActivity
+        deleteActivity: deleteActivity,
+        updateActivity: updateActivity
     }
 }

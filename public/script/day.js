@@ -107,9 +107,9 @@ const createActivityCard = (title, time_start, time_end, location, notes, formNu
     activityCardDiv.appendChild(cardLocation);
     activityCardDiv.appendChild(cardNotes);
 
-    // Add inside Document
-    const dayBody = document.querySelector('.days-body');
-    dayBody.insertBefore(activityCardDiv, addActivityBtn);
+    // Add inside form-card div
+    const formCard = document.querySelector(`.form-card${formNum}`);
+    formCard.appendChild(activityCardDiv);
 }
 
 
@@ -271,6 +271,8 @@ Create function for Edit button
 =========================
 *********************/
 
+
+// Change card into form for editing
 const allEditBtn = document.querySelectorAll('.edit-btn');
 allEditBtn.forEach(el => {
     // Get the ID of the acitivity from className
@@ -280,8 +282,6 @@ allEditBtn.forEach(el => {
         editForm(activityID)
     })
 })
-
-
 
 const editForm = (activityID) => {
     // Hide display of activity card
@@ -295,6 +295,63 @@ const editForm = (activityID) => {
     form.style.display = "block";
 }
 
+
+// Update form
+// Add event listener to save button
+const allUpdateBtn = document.querySelectorAll('.update-btn');
+allUpdateBtn.forEach(el => {
+    // Get the ID of the acitivity from className
+    const activityID = el.classList[2].slice(6);
+    const formNum = el.classList[1].slice(10);
+    console.log(activityID)
+    console.log(formNum);
+    el.addEventListener('click', () => {
+        updateForm(formNum, activityID)
+    })
+})
+
+// Create button function and send AJAX post request
+const updateForm = (formNum, activityID) => {
+    const activityFormDiv = document.querySelector(`.form-div${formNum}`);
+    const getTitle = document.querySelector(`.title${formNum}`).value
+    const getLocation = document.querySelector(`.location${formNum}`).value
+    const getTimeStart = document.querySelector(`.timestart${formNum}`).value
+    const getTimeEnd = document.querySelector(`.timeend${formNum}`).value
+    const getNotes = document.querySelector(`.notes${formNum}`).value
+
+    let data = {'title' : getTitle, 'location' : getLocation, 'time_start' : getTimeStart, 'time_end' : getTimeEnd, 'notes' : getNotes};
+
+    var request = new XMLHttpRequest();   // new HttpRequest instance
+
+    request.addEventListener("load", function(){
+        // remove previous activityCard
+        const parentNode = document.querySelector(`.form-card${formNum}`);
+        const childNode = document.querySelector(`.card-div${formNum}`)
+        parentNode.removeChild(childNode);
+
+        // Create new activity card
+        activityFormDiv.style.display = 'none';
+
+        console.log(this.responseText);
+
+        const response = JSON.parse(this.responseText)[0]
+
+        const id = response.id;
+        const title = response.title;
+        const time_start = response.time_start;
+        const time_end = response.time_end;
+        const location = response.location;
+        const notes = response.notes;
+
+        createActivityCard(title, time_start, time_end, location, notes, formNum, id);
+    });
+
+    request.open("POST", `/updateactivity/${activityID}/?_method=put`);
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    request.send(JSON.stringify(data));
+
+}
 
 /**********************
 =======================

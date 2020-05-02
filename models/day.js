@@ -20,16 +20,40 @@ module.exports = (dbPoolInstance) => {
         return dbPoolInstance.query(queryString);
     }
 
+    let singleActivity = (id) => {
+        let queryString = `select * from activities where id=${id}`;
+
+        return dbPoolInstance.query(queryString);
+    }
+
     let deleteActivity = (id) => {
         let queryString = `delete from activities where id=${id}`;
 
         return dbPoolInstance.query(queryString)
-            .then(response.send('delete'))
+    }
+
+    let updateActivity = (id, title, location, time_start, time_end, notes) => {
+        let queryString = `
+                        update
+                            activities
+                        set
+                            title = '${title}',
+                            location = '${location}',
+                            time_start = '${time_start}',
+                            time_end = '${time_end}',
+                            notes = '${notes}'
+                        where
+                            id=${id}
+                        `
+
+        return dbPoolInstance.query(queryString);
     }
 
     return {
         addActivity,
         allActivities,
-        deleteActivity
+        singleActivity,
+        deleteActivity,
+        updateActivity
     };
 };

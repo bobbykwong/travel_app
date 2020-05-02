@@ -54,4 +54,6 @@ module.exports = (app, allModels) => {
     app.post('/addactivity', dayPage.addActivity);
 
     app.delete('/deleteactivity/:id', dayPage.deleteActivity);
+
+    app.put('/updateactivity/:id', dayPage.updateActivity);
 };

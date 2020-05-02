@@ -20,6 +20,7 @@ class Login extends React.Component {
         const timeEndUpdate = `form-control activity-timeend timeend${i}`;
         const locationUpdate = `form-control activity-location location${i}`;
         const notesUpdate = `form-control activity-notes notes${i}`
+        const updateBtn = `update-btn updateform${i} update${el.id}`
 
         // Classnames of activity card
         const formCard = `form-card${i}`
@@ -37,16 +38,16 @@ class Login extends React.Component {
                     <form className="activity-form">
                         <div className="row">
                             <div className="col">
-                                <input type="text" name='title' placeholder='Activity' className={titleUpdate}></input><br></br>
-                                <input type='text' name='location' placeholder='Location' className={locationUpdate}></input><br></br>
-                                <input type='time' name='time_start' className={timeStartUpdate}></input>
-                                <input type='time' name='time_end' className={timeEndUpdate}></input><br></br>
+                                <input type="text" name='title' placeholder={el.title} className={titleUpdate} value={el.title}></input><br></br>
+                                <input type='text' name='location' placeholder={el.location} className={locationUpdate} value={el.location}></input><br></br>
+                                <input type='time' name='time_start' className={timeStartUpdate} value={el.time_start}></input>
+                                <input type='time' name='time_end' className={timeEndUpdate} value={el.time_end}></input><br></br>
                                 <label className="label-timestart" for="activity-timestart">Start</label>
                                 <label className="label-timeend" for="activity-timestart">End</label>
                             </div>
                             <div class="col">
-                                <input type='text' name='notes' placeholder='notes' className={notesUpdate}></input>
-                                <button type='button' className = 'update-btn'>Save</button>
+                                <input type='text' name='notes' placeholder={el.notes} className={notesUpdate} value={el.notes}></input>
+                                <button type='button' className ={updateBtn}>Save</button>
                             </div>
                         </div>
                     </form>
