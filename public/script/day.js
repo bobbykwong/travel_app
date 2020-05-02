@@ -359,43 +359,50 @@ Initialize Google Map
 =======================
 ***********************/
 
+// Get lat and long details from clasname of map
+const countryDetails = document.querySelector('.country-details').className;
+const countryName = countryDetails.split(' ')[3];
+const countryLat = parseFloat(countryDetails.split(' ')[1]);
+const countryLng = parseFloat(countryDetails.split(' ')[2]);
+console.log(countryLat, countryLng, countryName)
+
 // Attach your callback function to the `window` object
 window.initMap = function() {
-    var sydney = new google.maps.LatLng(-33.867, 151.195);
+    var country = new google.maps.LatLng(countryLat, countryLng);
 
     // JS API is loaded and available
     let map = new google.maps.Map(document.getElementById('map'), {
-        center: sydney,
-        zoom: 12
+        center: country,
+        zoom: 6
     });
 
-    let request = {
-        query: 'Museum of Contemporary Art Australia',
-        fields: ['name', 'geometry'],
-    };
+    // let request = {
+    //     query: 'Museum of Contemporary Art Australia',
+    //     fields: ['name', 'geometry'],
+    // };
 
-    var service = new google.maps.places.PlacesService(map);
+    // var service = new google.maps.places.PlacesService(map);
 
-    service.findPlaceFromQuery(request, function(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                createMarker(results[i]);
-            }
+    // service.findPlaceFromQuery(request, function(results, status) {
+    //     if (status === google.maps.places.PlacesServiceStatus.OK) {
+    //         for (var i = 0; i < results.length; i++) {
+    //             createMarker(results[i]);
+    //         }
 
-            map.setCenter(results[0].geometry.location);
-        }
-    });
+    //         map.setCenter(results[0].geometry.location);
+    //     }
+    // });
 
-    function createMarker(place) {
-        var marker = new google.maps.Marker({
-            map: map,
-            position: place.geometry.location
-        });
+    // function createMarker(place) {
+    //     var marker = new google.maps.Marker({
+    //         map: map,
+    //         position: place.geometry.location
+    //     });
 
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(place.name);
-            infowindow.open(map, this);
-        });
-    }
+    //     google.maps.event.addListener(marker, 'click', function() {
+    //         infowindow.setContent(place.name);
+    //         infowindow.open(map, this);
+    //     });
+    // }
 
 };

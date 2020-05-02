@@ -28,10 +28,13 @@ module.exports = (db) => {
                     data.username = username;
                     data.trips_id = trips_id;
                     data.days_id = days_id;
-                    console.log(data);
+                    return db.day.getCountryDetails(trips_id)
+                })
+                .then((results) => {
+                    data.countryDetails = results.rows
                     response.render('day', data);
                 })
-                .catch((err) => console.error(results.err))
+                .catch((err) => console.error(err.stack))
 
         }
         else{

@@ -49,11 +49,18 @@ module.exports = (dbPoolInstance) => {
         return dbPoolInstance.query(queryString);
     }
 
+    let getCountryDetails = (trips_id) => {
+        let queryString = `select country, lat, lng from trips where id=${trips_id}`
+
+        return dbPoolInstance.query(queryString);
+    }
+
     return {
         addActivity,
         allActivities,
         singleActivity,
         deleteActivity,
-        updateActivity
+        updateActivity,
+        getCountryDetails
     };
 };

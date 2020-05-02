@@ -107,6 +107,12 @@ class Login extends React.Component {
                         </div>
                         )
 
+    // Put country lat long details into class name of map
+    const lat = this.props.countryDetails[0].lat;
+    const lng = this.props.countryDetails[0].lng;
+    const country = this.props.countryDetails[0].country;
+    const countryDetails = `country-details ${lat} ${lng} ${country}`;
+
     return (
         <DefaultLayout title='day' css='/css/day.css'>
             {dayHeader}
@@ -114,7 +120,7 @@ class Login extends React.Component {
                 {showActivities}
                 {addActivityForm()}
                 {addActivityBtn}
-                <div id="map"></div>
+                <div id="map" className={countryDetails}></div>
             </div>
             <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&callback=initMap&libraries=places' async defer></script>
             <script src='/script/day.js'></script>
