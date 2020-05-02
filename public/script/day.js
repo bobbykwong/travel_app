@@ -95,7 +95,8 @@ const createActivityCard = (title, time_start, time_end, location, notes, formNu
     deleteBtn.classList.add( `delete${id}`);
     deleteBtn.textContent = 'Delete'
     deleteBtn.addEventListener('click', () => {
-        deleteForm(id)
+        deleteForm(id
+            )
     });
 
     // Add all components inside activity card
@@ -263,6 +264,36 @@ const deleteForm = (activityID) => {
 }
 
 
+
+/**********************
+======================
+Create function for Edit button
+=========================
+*********************/
+
+const allEditBtn = document.querySelectorAll('.edit-btn');
+allEditBtn.forEach(el => {
+    // Get the ID of the acitivity from className
+    const activityID = el.classList[1].slice(4);
+
+    el.addEventListener('click', () => {
+        editForm(activityID)
+    })
+})
+
+
+
+const editForm = (activityID) => {
+    // Hide display of activity card
+    const card = document.querySelector(`.activityid${activityID}`);
+    console.log(card);
+    card.style.display = 'none';
+    console.log(card);
+
+    // Show display of activity form
+    const form = document.querySelector(`.activityformid${activityID}`);
+    form.style.display = "block";
+}
 
 
 /**********************

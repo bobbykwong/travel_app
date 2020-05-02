@@ -61,6 +61,10 @@ Activity form
 	height: 80%;
 }
 
+.formhide{
+	display: none;
+}
+
 /***************
 ***************
 Activity Card
