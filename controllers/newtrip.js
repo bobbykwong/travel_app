@@ -32,13 +32,16 @@ module.exports = (db) => {
 
             // Get trip details from request body
             const country = request.body.country;
+            const lat = parseFloat(request.body.lat);
+            const lng = parseFloat(request.body.lng);
             const name = request.body.name;
             const date_start = request.body.date_start;
             const date_end = request.body.date_end;
 
             // Insert new trip into database
-            db.newTrip.addTrip(name, date_start, date_end, country, users_id)
+            db.newTrip.addTrip(name, date_start, date_end, country, lat, lng, users_id)
                 .then((results) => {
+                    console.log(results.rows);
                     const tripID = results.rows[0].id
                     response.redirect(`/trip/${tripID}`);
                 })

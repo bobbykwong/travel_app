@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS trips(
 	date_start DATE,
 	date_end DATE,
 	country TEXT,
+	lat NUMERIC(10, 7),
+	lng NUMERIC(10, 7),
 	users_id INTEGER
 );
 

@@ -6,7 +6,9 @@ class Login extends React.Component {
 
     const newTripForm = (
             <form action='/addnewtrip' method='post' className='form'>
-                <input type="text" name="country" placeholder="country" className="country" id="autocomplete" onFocus="geolocate()"></input><br></br>
+                <input type="text" name="country" placeholder="Destination" className="country" id="autocomplete" onFocus="geolocate()"></input><br></br>
+                <input type="number" step="any" name="lat" style={{display: "none"}} className="lat"></input>
+                <input type="number" step="any" name="lng" style={{display: "none"}} className="lng"></input>
                 <input type="text" name="name" placeholder="trip name" className="trip-name"></input><br></br>
                 <input type="date" name="date_start" className="date-start"></input>
                 <input type="date" name="date_end" className="date-end"></input><br></br>
