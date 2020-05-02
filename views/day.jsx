@@ -68,29 +68,30 @@ class Login extends React.Component {
     const addActivityForm = () => {
         const num = allActivities.length;
         const formCard = `form-card${num}`
-        const divUpdate = `activity-form-div form-div${num}`;
-        const titleUpdate = `form-control activity-title title${num}`;
-        const timeStartUpdate = `form-control activity-timestart timestart${num}`;
-        const timeEndUpdate = `form-control activity-timeend timeend${num}`;
-        const locationUpdate = `form-control autocomplete activity-location location${num}`;
-        const notesUpdate = `form-control activity-notes notes${num}`
+        const divAdd = `activity-form-div form-div${num}`;
+        const titleAdd = `form-control activity-title title${num}`;
+        const timeStartAdd = `form-control activity-timestart timestart${num}`;
+        const timeEndAdd = `form-control activity-timeend timeend${num}`;
+        const locationAdd = `form-control autocomplete activity-location location${num}`;
+        const notesAdd = `form-control activity-notes notes${num}`
+        const saveBtn = `save-btn save${num}`
 
         return (
             <div className={formCard}>
-                <div className={divUpdate}>
+                <div className={divAdd}>
                     <form>
                         <div class="row">
                             <div class="col">
-                                <input type="text" name='title' placeholder='Activity' className="form-control activity-title title0"></input><br></br>
-                                <input type='text' name='location' placeholder='Location' className={locationUpdate} onFocus="geolocate()"></input><br></br>
-                                <input type='time' name='time_start' className={timeStartUpdate}></input>
-                                <input type='time' name='time_end' className={timeEndUpdate}></input><br></br>
+                                <input type="text" name='title' placeholder='Activity' className={titleAdd}></input><br></br>
+                                <input type='text' name='location' placeholder='Location' className={locationAdd} onFocus="geolocate()"></input><br></br>
+                                <input type='time' name='time_start' className={timeStartAdd}></input>
+                                <input type='time' name='time_end' className={timeEndAdd}></input><br></br>
                                 <label className="label-timestart" for="activity-timestart">Start</label>
                                 <label className="label-timeend" for="activity-timestart">End</label>
                             </div>
                             <div class="col">
-                                <input type='text' name='notes' placeholder='notes' className={notesUpdate}></input>
-                                <button type='button' className = 'save-btn'>Save</button>
+                                <input type='text' name='notes' placeholder='notes' className={notesAdd}></input>
+                                <button type='button' className={saveBtn}>Save</button>
                             </div>
                         </div>
                     </form>

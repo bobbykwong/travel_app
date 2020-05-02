@@ -11,8 +11,10 @@ const addActivityBtn = document.querySelector('.add-activity-btn-div');
 const saveBtn = document.querySelectorAll('.save-btn');
 saveBtn.forEach((el, i) => {
     el.addEventListener('click', () => {
-        // const formNum = document.querySelectorAll('.activity-form-div').length;
-        saveForm(i);
+        // Get formnum
+        const formNum = el.className.split(' ')[1].slice(4);
+
+        saveForm(formNum);
     })
 })
 
