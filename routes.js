@@ -45,6 +45,7 @@ module.exports = (app, allModels) => {
 
     app.get('/trip/:id', tripPage.tripPage);
 
+    app.post('/addfriend/:id', tripPage.addFriend);
 
     // Days page
     const dayPage = require('./controllers/day')(allModels);

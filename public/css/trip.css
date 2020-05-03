@@ -12,12 +12,20 @@ h2{
 	font-size: 2rem;
 }
 
-.days-body{
+.friend-table{
+	width: 20%;
+	display: inline;
 }
 
-.days-div{
+.friend-form{
+	margin-top: 4%;
 }
 
-.days-div p{
-	text-decoration: none;
+.friend-input{
+	width: 100%;
+}
+
+.trip-table{
+	width: 70%;
+	display: inline;
 }

@@ -37,13 +37,17 @@ module.exports = (db) => {
             const name = request.body.name;
             const date_start = request.body.date_start;
             const date_end = request.body.date_end;
+            let trips_id;
 
             // Insert new trip into database
-            db.newTrip.addTrip(name, date_start, date_end, country, lat, lng, users_id)
+            db.newTrip.addTrip(name, date_start, date_end, country, lat, lng)
                 .then((results) => {
                     console.log(results.rows);
-                    const tripID = results.rows[0].id
-                    response.redirect(`/trip/${tripID}`);
+                    trips_id = results.rows[0].id
+                    return db.newTrip.addTripUser(users_id, trips_id)
+                })
+                .then((results) => {
+                    response.redirect(`/trip/${trips_id}`);
                 })
                 .catch(err => console.error(err.stack))
 

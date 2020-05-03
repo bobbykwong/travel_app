@@ -4,6 +4,12 @@ CREATE TABLE IF NOT EXISTS users(
 	password TEXT
 );
 
+CREATE TABLE IF NOT EXISTS users_trips(
+	id SERIAL PRIMARY KEY,
+	users_id INTEGER,
+	trips_id INTEGER
+);
+
 CREATE TABLE IF NOT EXISTS trips(
 	id SERIAL PRIMARY KEY,
 	name TEXT,
@@ -11,8 +17,7 @@ CREATE TABLE IF NOT EXISTS trips(
 	date_end DATE,
 	country TEXT,
 	lat NUMERIC(10, 7),
-	lng NUMERIC(10, 7),
-	users_id INTEGER
+	lng NUMERIC(10, 7)
 );
 
 CREATE TABLE IF NOT EXISTS days(

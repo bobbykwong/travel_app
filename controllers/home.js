@@ -10,13 +10,15 @@ module.exports = (db) => {
         if (loggedIn === 'true') {
             // Get username from cookies
             const username = request.cookies.username;
-            const userID = request.cookies.userID;
+            const users_id = request.cookies.userID;
+            let trips_id;
             let data = {};
 
             // Get all trips from database
-            db.home.getTrips(userID)
+            db.home.getTrips(users_id, trips_id)
                 .then(results => {
                     data['trips'] = results.rows;
+                    console.log(data)
 
                     data.trips.forEach(el => {
                         let startDate = new Date(el.date_start)

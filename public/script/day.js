@@ -395,7 +395,7 @@ window.initMap = function() {
     // JS API is loaded and available
     let map = new google.maps.Map(document.getElementById('map'), {
         center: country,
-        zoom: 12
+        zoom: 8
     });
 
     // Add a marker on all locations

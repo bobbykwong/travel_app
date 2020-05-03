@@ -15,8 +15,6 @@ class Home extends React.Component {
             <h2>YOUR TRIPS</h2>
         )
 
-    const yourTrips = <h2 className='your-trip'>TRAVEL THE WORLD</h2>
-
     const allTrips = this.props.trips;
 
     const showTrips = allTrips.map(el => {

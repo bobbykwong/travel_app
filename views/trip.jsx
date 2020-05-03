@@ -22,6 +22,33 @@ class Trip extends React.Component {
                     </div>
                     )
 
+    let friendOptions;
+
+    const inviteFriendForm = () => {
+            const url = `/addfriend/${tripID}`
+
+            return(
+            <div className='friend-form'>
+                <form id='form1' action={url} method='POST'>
+                    <input name='friend' placeholder='Friend username' className='friend-input'></input>
+                    <button type='submit' class="btn btn-outline-info friend-submit" form='form1'>Invite a Friend</button>
+                </form>
+            </div>
+            )
+    }
+
+    const tripFriends = this.props.tripFriends;
+
+    let showFriends = tripFriends.map((el, i) => {
+        return (
+            <tr>
+                <th scope="row">{i+1}</th>
+                <td>{el.username}</td>
+            </tr>
+            )
+    })
+
+
     // Loop over tripLength to get total number of days
     const tripLength = this.props.tripLength;
     const days = [];
@@ -39,24 +66,42 @@ class Trip extends React.Component {
         i++;
     }
 
-
     return (
         <DefaultLayout title='trip' css='/css/trip.css'>
             {tripHeader}
-            <div className='days-body'>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">DAY</th>
-                      <th scope="col">Highlight</th>
-                      <th scope="col"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {days}
-                  </tbody>
-                </table>
+            <div className='container'>
+                <div className="row">
+                    <div className="col-md-3">
+                        <table class="table table-striped table-secondary">
+                            <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Trip Buddies</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {showFriends}
+                            </tbody>
+                        </table>
+                        {inviteFriendForm()}
+                    </div>
+                    <div className="col-md-9">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                  <th scope="col">DAY</th>
+                                  <th scope="col">Highlight</th>
+                                  <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {days}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+            <script src='/script/trip.js'></script>
         </DefaultLayout>
     );
   }

@@ -18,7 +18,7 @@ module.exports = (db) => {
 
             let promise1 = new Promise((resolve, reject) => {
                 // Get trip details from database
-                db.trip.getTrip(users_id, trips_id)
+                db.trip.getTrip(trips_id)
                     .then((results) => {
                         data = results.rows[0];
 
@@ -46,16 +46,25 @@ module.exports = (db) => {
 
             let promise2 = new Promise((resolve, reject) => {
                 // Get length of trip
-                db.trip.getTripLength(users_id, trips_id)
+                db.trip.getTripLength(trips_id)
                     .then(results => {
                         data['tripLength'] = results.rows[0].triplength;
-                        console.log(data)
                         resolve();
                     })
                     .catch(err => console.error(err.stack))
             })
 
-            Promise.all([promise1, promise2])
+            let promise3 = new Promise((resolve, reject) => {
+                // Get all friends collaborating on trip
+                db.trip.getTripFriends(trips_id)
+                    .then(results => {
+                        data.tripFriends = results.rows;
+                        resolve();
+                    })
+                    .catch(err => console.error(err.stack))
+            })
+
+            Promise.all([promise1, promise2, promise3])
                 .then(() => {
                     data['username'] = username;
                     response.render('trip', data);
@@ -67,8 +76,30 @@ module.exports = (db) => {
         }
     }
 
+    let addFriend = (request, response) => {
+        const friendName = request.body.friend;
+        const trips_id = request.params.id;
+
+        // Find whether friend exists
+        db.trip.findFriend(friendName)
+            .then(results => {
+                if(results.rows.length === 0){
+                    response.redirect(`/trip/${trips_id}`)
+                }
+                else{
+                    const users_id = results.rows[0].id;
+
+                    // Add friend into database users_trips
+                    db.trip.addFriend(users_id, trips_id)
+                        .then(() => response.redirect(`/trip/${trips_id}`))
+                }
+            })
+
+    }
+
 
     return{
-        tripPage: tripPage
+        tripPage: tripPage,
+        addFriend: addFriend
     }
 }
