@@ -1,8 +1,10 @@
 var React = require("react");
 var DefaultLayout = require('./components/layout/default');
+var flags = require('../flag.json');
 
 class Home extends React.Component {
   render() {
+
     const icon = <img src='./images/logo.svg' className='icon'></img>
 
     const username = this.props.username;
@@ -19,12 +21,26 @@ class Home extends React.Component {
 
     const showTrips = allTrips.map(el => {
         const tripURL = `/trip/${el.id}`
-        // Might want to make background of each trip into a country flag
+        const country = el.country
+
+        // Get flag image from flag.json file
+        let flagImage;
+        flags.forEach(element => {
+            if(element.country.toLowerCase() === country.toLowerCase()){
+                flagImage = element.flag_base64;
+                console.log(flagImage);
+            }
+        })
+
+        const backgroundStyle = {background: `url(${flagImage})`, backgroundSize: 'cover'};
+
         return (
-                <a href={tripURL} className='trip'>
-                    <p>{el.name}</p>
-                    <p>{el.date_start}</p>
-                </a>
+                <div className='singletrip-div' style={backgroundStyle}>
+                    <a href={tripURL} className='trip'>
+                        <p>{el.name}</p>
+                        <p>{el.date_start}</p>
+                    </a>
+                </div>
                 )
     })
 
@@ -34,6 +50,7 @@ class Home extends React.Component {
                 {newTrip}
                 {showTrips}
             </div>
+            <script src='/script/home.js'></script>
         </DefaultLayout>
     );
   }

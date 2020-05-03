@@ -18,7 +18,6 @@ module.exports = (db) => {
             db.home.getTrips(users_id, trips_id)
                 .then(results => {
                     data['trips'] = results.rows;
-                    console.log(data)
 
                     data.trips.forEach(el => {
                         let startDate = new Date(el.date_start)
