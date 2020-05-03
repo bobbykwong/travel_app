@@ -32,14 +32,17 @@ class Home extends React.Component {
             }
         })
 
-        const backgroundStyle = {background: `url(${flagImage})`, backgroundSize: 'cover'};
+        const backgroundStyle = {background: `url(${flagImage})`, backgroundSize: 'cover', backgroundPosition: 'center'};
 
         return (
-                <div className='singletrip-div' style={backgroundStyle}>
-                    <a href={tripURL} className='trip'>
-                        <p>{el.name}</p>
-                        <p>{el.date_start}</p>
-                    </a>
+                <div className='singletrip-div'>
+                    <div className='flag' style={backgroundStyle}><p></p></div>
+                        <a href={tripURL} className='trip'>
+                            <p>{el.name}</p>
+                            <p>{el.date_start}</p>
+                        </a>
+                    <div>
+                    </div>
                 </div>
                 )
     })

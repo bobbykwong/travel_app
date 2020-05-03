@@ -5,19 +5,20 @@
 	justify-content: space-around;
 }
 
-.trip{
-	background-color: pink;
-}
 
 .singletrip-div{
-	/*background-size: contain;*/
-	/*background-size: cover;*/
-	/*background-repeat: no-repeat;*/
-	width: 14%;
-	height: 25%;
-	margin: 0 5%;
+	height: 20%;
+	width: 20%
 }
 
+.flag{
+	width: 70%;
+	height: 65%;
+}
+
+.trip{
+	font-size: 2rem;
+}
 
 .new-trip{
 	display: inline-block;
