@@ -16,6 +16,7 @@ header{
 .logo{
 	display: inline-block;
 	float: left;
+	margin: 2% 2%;
 }
 
 .home-btn{
@@ -38,8 +39,8 @@ h1{
 }
 
 .link-item{
-	font-size: 2rem;
-	margin: 0 3%;
+	font-size: 3rem;
+	margin: 3% 3%;
 }
 
 .link-item-single{

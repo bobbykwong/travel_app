@@ -2,6 +2,8 @@ var React = require("react");
 
 class Login extends React.Component {
   render() {
+    const icon = <img src='/images/logo.svg' className='icon'></img>
+
     const loginForm = (
             <form action="/authenticating" method="get">
                 <input type="text" name="username" placeholder="username"></input><br></br>
@@ -18,6 +20,9 @@ class Login extends React.Component {
         <body>
             <div>
                 <h1>TRAVELAPP</h1>
+            </div>
+            <div>
+                {icon}
             </div>
             <div className="login-body">
                 {loginForm}<br></br>

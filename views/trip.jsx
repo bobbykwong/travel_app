@@ -69,9 +69,10 @@ class Trip extends React.Component {
     return (
         <DefaultLayout title='trip' css='/css/trip.css'>
             {tripHeader}
-            <div className='container'>
+            <div className='container tables-div'>
                 <div className="row">
                     <div className="col-md-3">
+                        {inviteFriendForm()}
                         <table class="table table-striped table-secondary">
                             <thead>
                                 <tr>
@@ -83,7 +84,6 @@ class Trip extends React.Component {
                                 {showFriends}
                             </tbody>
                         </table>
-                        {inviteFriendForm()}
                     </div>
                     <div className="col-md-9">
                         <table class="table">

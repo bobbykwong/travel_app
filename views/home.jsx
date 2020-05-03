@@ -49,8 +49,8 @@ class Home extends React.Component {
 
     return (
         <DefaultLayout title='homepage' css='/css/home.css'>
+            {newTrip}
             <div className='trips-div'>
-                {newTrip}
                 {showTrips}
             </div>
             <script src='/script/home.js'></script>

@@ -1,15 +1,20 @@
 h2{
 	color: rgb(255,214,209);
-	font-size: 4rem;
+	font-size: 8rem;
 }
 
 
 .trip-header{
 	text-align: center;
+	font-size: 3rem;
 }
 
 .country{
-	font-size: 2rem;
+	font-size: 5rem;
+}
+
+.tables-div{
+	font-size: 3rem;
 }
 
 .friend-table{
@@ -18,11 +23,15 @@ h2{
 }
 
 .friend-form{
-	margin-top: 4%;
+	margin-bottom: 4%;
 }
 
 .friend-input{
 	width: 100%;
+}
+
+.friend-submit{
+	font-size: 2rem;
 }
 
 .trip-table{

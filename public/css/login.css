@@ -1,9 +1,18 @@
 h1{
 	color: rgb(255,214,209);
 	text-align: center;
+	font-size: 10rem;
+}
+
+.icon{
+	max-height: 17%;
+	max-width: 17%;
+	display: block;
+	margin: -13% auto;
 }
 
 .login-body{
 	width: 90%;
 	text-align: center;
+	margin: 20% auto;
 }

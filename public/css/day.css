@@ -1,7 +1,7 @@
 
 h2{
 	color: rgb(255,214,209);
-	font-size: 4rem;
+	font-size: 8rem;
 }
 
 
@@ -10,7 +10,11 @@ h2{
 }
 
 .day-num{
-	font-size: 40px;
+	font-size: 8rem;
+}
+
+.days-body{
+	font-size: 4rem;
 }
 
 .add-activity-btn-div{
@@ -41,16 +45,30 @@ Activity form
 	margin: 2% auto;
 }
 
+.activity-title{
+	font-size: 3rem;
+}
+
+.activity-location{
+	font-size: 3rem;
+}
+
+.activity-notes{
+	font-size: 3rem;
+}
 
 .activity-timestart{
 	display: inline;
 	width: 45%;
-	margin-right: 10%
+	margin-right: 10%;
+	font-size: 3rem;
 }
 
 .activity-timeend{
 	display: inline;
 	width: 45%;
+  font-size: 3rem;
+
 }
 
 .label-timestart{
@@ -70,6 +88,10 @@ Activity form
 Activity Card
 ***************
 ***************/
+
+h3{
+	font-size: 5rem;
+}
 
 .activity-card-div{
 	border-bottom: solid #fc7f86;
@@ -94,6 +116,7 @@ Activity Card
 
 .card-time{
 	text-align: center;
+	margin-left: 12%;
 }
 
 .card-location{
