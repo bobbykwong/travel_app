@@ -382,11 +382,21 @@ function initialize() {
 
 
 // Get lat and long details from clasname of map
+let countryName;
+let countryLat;
+let countryLng;
+
 const countryDetails = document.querySelector('.country-details').className;
-const countryName = countryDetails.split(' ')[3];
-const countryLat = parseFloat(countryDetails.split(' ')[1]);
-const countryLng = parseFloat(countryDetails.split(' ')[2]);
-console.log(countryLat, countryLng, countryName)
+if(isNaN(parseFloat(countryDetails.split(' ')[1])) || isNaN(parseFloat(countryDetails.split(' ')[2]))){
+    console.log('hello')
+    countryLat = 34.052235;
+    countryLng = -118.243683;
+}else{
+    countryName = countryDetails.split(' ')[3];
+    countryLat = parseFloat(countryDetails.split(' ')[1]);
+    countryLng = parseFloat(countryDetails.split(' ')[2]);
+    console.log(countryLat, countryLng, countryName)
+}
 
 // Attach your callback function to the `window` object
 window.initMap = function() {

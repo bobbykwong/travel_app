@@ -1,5 +1,5 @@
 h2{
-	color: rgb(255,214,209);
+	color: rgb(255, 235, 233);
 	font-size: 8rem;
 }
 
@@ -31,7 +31,8 @@ h2{
 }
 
 .friend-submit{
-	font-size: 2rem;
+	font-size: 3rem;
+	font-weight: 1rem;
 }
 
 .trip-table{

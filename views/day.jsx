@@ -104,7 +104,7 @@ class Login extends React.Component {
 
     const addActivityBtn = (
                         <div className='add-activity-btn-div'>
-                            <button type='button' className='add-activity-btn'>Add Activity</button>
+                            <button type='button' className='btn btn-secondary add-activity-btn'>Add Activity</button>
                         </div>
                         )
 

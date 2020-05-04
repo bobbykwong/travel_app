@@ -73,7 +73,7 @@ class Trip extends React.Component {
                 <div className="row">
                     <div className="col-md-3">
                         {inviteFriendForm()}
-                        <table class="table table-striped table-secondary">
+                        <table class="table table-striped table-info">
                             <thead>
                                 <tr>
                                   <th scope="col">#</th>

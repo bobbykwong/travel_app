@@ -1,6 +1,6 @@
 
 h2{
-	color: rgb(255,214,209);
+	color: rgb(255, 235, 233);
 	font-size: 8rem;
 }
 
@@ -23,7 +23,8 @@ h2{
 }
 .add-activity-btn{
 	text-align: center;
-	width: 15%;
+	width: 20%;
+	font-size: 4rem;
 }
 
 #map{

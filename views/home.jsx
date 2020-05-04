@@ -25,13 +25,18 @@ class Home extends React.Component {
 
         // Get flag image from flag.json file
         let flagImage;
+
         flags.forEach(element => {
             if(element.country.toLowerCase() === country.toLowerCase()){
-                flagImage = element.flag_base64;
+                flagImage = `url(${element.flag_base64})`;
             }
         })
 
-        const backgroundStyle = {background: `url(${flagImage})`, backgroundSize: 'cover', backgroundPosition: 'center'};
+        if(flagImage === undefined){
+            flagImage = `rgb(255, 235, 233)`;
+        }
+
+        const backgroundStyle = {background: `${flagImage}`, backgroundSize: 'cover', backgroundPosition: 'center'};
 
         return (
                 <div className='singletrip-div'>

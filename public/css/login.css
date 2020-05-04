@@ -1,5 +1,9 @@
+body{
+	background-color: #f5a5a5;
+}
+
 h1{
-	color: rgb(255,214,209);
+	color: rgb(255, 235, 233);
 	text-align: center;
 	font-size: 10rem;
 }
