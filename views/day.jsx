@@ -125,8 +125,8 @@ class Login extends React.Component {
                 {addActivityBtn}
                 <div id="map" className={countryDetails}></div>
             </div>
-            <script src={googleURL} async defer></script>
             <script src='/script/day.js'></script>
+            <script src={googleURL} async defer></script>
         </DefaultLayout>
     );
   }
