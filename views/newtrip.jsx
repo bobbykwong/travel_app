@@ -16,13 +16,14 @@ class Login extends React.Component {
             </form>
                         )
 
+    const googleURL = `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_KEY}&libraries=places&callback=initAutocomplete`
 
     return (
         <DefaultLayout title='newtrip' css='/css/newtrip.css'>
             <div className='new-trip'>
                 {newTripForm}
             </div>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&libraries=places&callback=initAutocomplete"
+            <script src={googleURL}
         async defer></script>
         <script src="/script/newtrip.js"></script>
         </DefaultLayout>

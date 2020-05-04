@@ -114,6 +114,8 @@ class Login extends React.Component {
     const country = this.props.countryDetails[0].country;
     const countryDetails = `country-details ${lat} ${lng} ${country}`;
 
+    const googleURL = `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_KEY}&libraries=places&callback=initialize`
+
     return (
         <DefaultLayout title='day' css='/css/day.css'>
             {dayHeader}
@@ -123,7 +125,7 @@ class Login extends React.Component {
                 {addActivityBtn}
                 <div id="map" className={countryDetails}></div>
             </div>
-            <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCUoCP1u86ZopN6JWDAWKi8LdOhWSke9v4&libraries=places&callback=initialize' async defer></script>
+            <script src={googleURL} async defer></script>
             <script src='/script/day.js'></script>
         </DefaultLayout>
     );

@@ -3,6 +3,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const sha256 = require('js-sha256');
 const bodyParser = require('body-parser');
+require('dotenv').config()
 
 /**
  * ===================================
