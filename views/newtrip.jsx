@@ -23,9 +23,8 @@ class Login extends React.Component {
             <div className='new-trip'>
                 {newTripForm}
             </div>
-            <script src={googleURL}
-        async defer></script>
         <script src="/script/newtrip.js"></script>
+        <script src={googleURL}async defer></script>
         </DefaultLayout>
     );
   }

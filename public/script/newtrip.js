@@ -1,13 +1,12 @@
 console.log('hello there')
 let autocomplete;
-// google.maps.event.addDomListener(window, 'load', initAutocomplete);
-function initAutocomplete() {
+
+initAutocomplete = function() {
     console.log('hello')
     // Create the autocomplete object, restricting the search predictions to
     // geographical location types.
     autocomplete = new google.maps.places.Autocomplete(
       document.getElementById('autocomplete'), {types: ['geocode']});
-
     // Avoid paying for data that you don't need by restricting the set of
     // place fields that are returned to just the geometry components.
     autocomplete.setFields(['geometry']);
