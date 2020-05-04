@@ -28,7 +28,6 @@ class Home extends React.Component {
         flags.forEach(element => {
             if(element.country.toLowerCase() === country.toLowerCase()){
                 flagImage = element.flag_base64;
-                console.log(flagImage);
             }
         })
 
