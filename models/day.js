@@ -33,6 +33,7 @@ module.exports = (dbPoolInstance) => {
     }
 
     let updateActivity = (id, title, location, time_start, time_end, notes) => {
+        console.log('reached model');
         let queryString = `
                         update
                             activities
@@ -44,7 +45,7 @@ module.exports = (dbPoolInstance) => {
                             notes = '${notes}'
                         where
                             id=${id}
-                        `
+                        `;
 
         return dbPoolInstance.query(queryString);
     }

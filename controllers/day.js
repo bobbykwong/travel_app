@@ -70,12 +70,14 @@ module.exports = (db) => {
     }
 
     let updateActivity = (request, response) => {
+        console.log(request.body)
         const title = request.body.title;
         const location = request.body.location;
         const time_start = request.body.time_start;
         const time_end = request.body.time_end;
         const notes = request.body.notes;
         const id = request.params.id;
+        console.log(notes);
 
         db.day.updateActivity(id, title, location, time_start, time_end, notes)
             .then((results) => {
@@ -83,6 +85,9 @@ module.exports = (db) => {
             })
             .then(results => {
                 response.send(results.rows);
+            })
+            .catch(err => {
+                console.error(err);
             })
     }
 
