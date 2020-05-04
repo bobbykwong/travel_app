@@ -1,6 +1,8 @@
 console.log('hello there')
 let autocomplete;
+// google.maps.event.addDomListener(window, 'load', initAutocomplete);
 function initAutocomplete() {
+    console.log('hello')
     // Create the autocomplete object, restricting the search predictions to
     // geographical location types.
     autocomplete = new google.maps.places.Autocomplete(
