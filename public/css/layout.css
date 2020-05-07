@@ -5,12 +5,13 @@ html{
 
 body{
 	height: 100%;
-	background-color: #f5a5a5;
+	background-color: #cccccc;
 }
 
 header{
+	background-color: #f5a5a5;
 	text-align: center;
-	height: 14%;
+	height: 18%;
 	border-bottom: solid #00000036;
 }
 
