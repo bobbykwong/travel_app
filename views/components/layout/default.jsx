@@ -2,19 +2,23 @@ var React = require("react");
 
 class DefaultLayout extends React.Component {
     render() {
-        const icon = <img src='/images/logo.svg' className='icon'></img>
+        // const icon = <img src='/images/logo.svg' className='icon'></img>
 
         const sideNav = (
-        <ul class="nav justify-content-center nav-pills">
-          <li class="nav-item link-item">
-            <a class="nav-link link-item-single active" href="/">YOUR TRIPS</a>
-          </li>
-          <li class="nav-item link-item">
-            <a class="nav-link link-item-single" href="#">Link</a>
-          </li>
-        </ul>
+                <ul class="nav justify-content-between">
+                  <li>
+                    <a href='/'>
+                        <img src='/images/logo.svg' className='icon'></img>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/logout" className="logout">
+                        <img src='/images/logout.svg' className="logout-img"></img>
+                        logout
+                    </a>
+                  </li>
+                </ul>
             )
-
 
         return(
             <html>
@@ -27,12 +31,6 @@ class DefaultLayout extends React.Component {
                 </head>
                 <body>
                     <header>
-                        <div className='logo'>
-                            <a href='/' className='home-btn'>
-                            {icon}
-                            <h1>TRAVELAPP</h1>
-                            </a>
-                        </div>
                         <nav>
                             {sideNav}
                         </nav>

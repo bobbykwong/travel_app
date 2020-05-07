@@ -33,6 +33,8 @@ module.exports = (app, allModels) => {
 
     app.get('/', homePage.homePage);
 
+    app.get('/logout', homePage.logout);
+
     // New Trip page
     const newTripPage = require('./controllers/newtrip')(allModels);
 

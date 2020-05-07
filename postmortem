@@ -1,0 +1,43 @@
+1. What in my process and approach to this project would I do differently next time?
+
+- Naming indentation, ERD and wireframing. The project gets very messy when you scale it if these 3 things are not properly done.
+
+- It is also good to check out all the functions and analyse their feasability at the start of the project in order to plan the project better. I initially wanted to have some researching funcitons within the app but i left it for later. When I came round to it, i found out that most of these apis that i wanted to connect to required you to apply to them and seek their approval. Because of time constraint, i wasn't able to get the approval on time.
+
+2. What in my process and approach to this project went well that I would repeat next time?
+
+- The google maps api worked pretty well. Its good to read through the documentation even if it can be lengthy. Some videos online could be outdated but a good resource nevertheless.
+
+3. What in my code and program design in the project would I do differently next time?
+
+- I used dom manipulation to create entire forms and cards in my DOM. On hindsight, that is quite a poor choice because the entire thing can go haywire pretty quickly since there are so many parts you have to create for things like forms.
+
+4. What in my code and program design in the project went well? Is there anything I would do the same next time?
+
+- Would definitely consider using more bootstrap and frameworks (didn't actually use this) next time. Trying to do CSS on many of these areas can turn out unexpectedly ugly especially if you dont have an eye for design. Would be great to see if you can find some templates.
+
+- Just some thoughts. I wonder whether it would be better to try to find online more elegant ways of doing something for eg. a package online if I know im able to do hardcode something.
+
+
+5. What habits did I use during this unit that helped me?
+- Did a little bit better by learning from project 1 and taking regular step backs to look at the code overall and think about whether there's a better way to do things. But clearly not enough based on the mess when doing the DOM manipulation.
+
+6. Definitely still need to do a lot of improvements on CSS. My design was quite bad and it makes my project look like it lacks substance. Aesthetics are important.
+
+7. Good habit was that I didn't wait till the last day like project 1 to start on design. It seems better to do the design while doing the project. But then again, seems to be a waste of effort when I decide to discard sth. There should be a better way of going about this...
+
+
+Lessons learnt from this project
+- integrating with Google API. Making api requests with google. Manipulating what shows on the Maps
+- Query with PSQL.
+- Considerations on server-side rendering and client-side rendering. Weighing the pros and cons for each adoption
+	- server side rendering is useful if it is a more static file
+		- server side might also be good for initial page load whereas client side is highly dependent on client internet speed.
+	- client side is better for more rich interactive features
+- exploring npm packages within Node. Appreciating in greater depth what node.js does
+
+
+Able to identify weakness of websites on first glance
+
+Talk about projects in resume
+talk about why node over other languages eg.

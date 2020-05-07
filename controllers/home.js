@@ -40,8 +40,17 @@ module.exports = (db) => {
         }
     }
 
+    let logout = (request, response) => {
+        response.cookie('loggedIn', 'false');
+        response.cookie('username', '');
+        response.cookie('userID', '');
+
+        response.redirect('/login');
+    }
+
 
     return{
-        homePage: homePage
+        homePage: homePage,
+        logout: logout
     }
 }

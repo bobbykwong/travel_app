@@ -14,38 +14,33 @@ header{
 	border-bottom: solid #00000036;
 }
 
-.logo{
-	display: inline-block;
-	float: left;
-	margin: 2% 2%;
-}
-
-.home-btn{
-	text-decoration: none;
-}
-
-.home-btn:hover{
-	text-decoration: none;
-}
-
-h1{
-	color: rgb(255, 235, 233);
-	display: inline;
-	text-decoration: none;
+nav{
+	position: relative;
+	top: 20%;
+	width: 95%;
+	margin: auto;
 }
 
 .icon{
-	max-height: 50px;
-	max-width: 50px;
+	max-height: 70px;
+	max-width: 70px;
 }
 
-.link-item{
+
+.logout{
+	text-decoration: none;
+	color: black;
 	font-size: 3rem;
-	margin: 3% 3%;
 }
 
-.link-item-single{
-	color: rgb(255, 235, 233);
+.logout:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.logout-img{
+	height: 50px;
+	width: 50px;
 }
 
 .main-body{
